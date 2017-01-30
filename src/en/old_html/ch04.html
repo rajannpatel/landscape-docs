@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ascii" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude"><head><title>Chapter&#160;4.&#160;Managing administrators</title><link rel="stylesheet" type="text/css" href="./css/main.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="shortcut icon" type="image/x-icon" id="style" href="/css/favicon.ico"/><link rel="home" href="index.html" title="Landscape Documentation"/><link rel="up" href="index.html" title="Landscape Documentation"/><link rel="prev" href="ch03.html" title="Chapter&#160;3.&#160;Managing Landscape"/><link rel="next" href="ch05.html" title="Chapter&#160;5.&#160;Access groups"/></head><body><div class="document"><div class="content"><div id="header"><div id="logo-container"><a href="/"><div id="logo"><div id="logo-text">
+              LANDSCAPE
+            </div></div></a></div></div><div id="navigation"><div id="navheader"><h3>Landscape Documentation</h3><strong>Table of Contents</strong><table><tr class="nav"><td><a href="index.html">0. Landscape Documentation</a></td></tr><tr class="nav"><td><a href="ch01.html">1. About Landscape and Canonical</a></td></tr><tr class="nav"><td><a href="ch02.html">2. Basic Concepts</a></td></tr><tr class="nav"><td><a href="ch03.html">3. Managing Landscape</a></td></tr><tr class="selected"><td><a class="selected">Managing administrators</a></td></tr><tr class="nav"><td><a href="ch05.html">5. Access groups</a></td></tr><tr class="nav"><td><a href="ch06.html">6. Managing computers</a></td></tr><tr class="nav"><td><a href="ch07.html">7. Managing packages</a></td></tr><tr class="nav"><td><a href="ch08.html">8. Use cases</a></td></tr><tr class="nav"><td><a href="ch09.html">9. The Landscape API</a></td></tr></table><br/><hr class="nav"/><div id="navhoriz"><span id="navprev"><a accesskey="p" href="ch03.html">Prev</a>&#160;</span><span id="navindex">&#160;<a accesskey="u" href="index.html">Up</a>&#160;</span><span id="navnext">&#160;<a accesskey="n" href="ch05.html">Next</a></span></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="idp61479568"/>Chapter&#160;4.&#160;Managing administrators</h1></div></div></div><div class="toc"><p><strong>Contents</strong></p><dl class="toc"><dt><span class="section"><a href="ch04.html#idp62024928">Inviting administrators</a></span></dt><dt><span class="section"><a href="ch04.html#idp58355408">Disabling administrators</a></span></dt><dt><span class="section"><a href="ch04.html#idp62992640">Roles</a></span></dt></dl></div><p>Administrators are people who are authorized to manage computers using
+  Landscape. You can manage administrators from the <span class="guiicon">ADMINISTRATORS</span> menu under your account. </p><div class="figure"><a id="idp58574768"/><p class="title"><strong>Figure&#160;4.1.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="manageadmin1.png"/></div></div></div></div><p><br class="figure-break"/>On this page, the upper part of the screen shows a list of
+  existing administrators and their email addresses. You may create as many as
+  1,000 administrators, or as few as one. If you're running Landscape
+  Dedicated Server, the first user you create automatically become an
+  administrator of your account. If you're using the hosted version of
+  Landscape, Canonical sends you an administrator invitation when your account
+  is created. After that, you must create additional administrators
+  yourself.</p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp62024928"/>Inviting administrators</h2></div></div></div><p>You make someone an administrator by sending that person an
+    invitation via email. On the administrator management page, specify the
+    person's name and email address, and the administration role you wish the
+    person to have. The choices that appear in the drop-down list are the
+    roles defined under the <span class="guiicon">ROLES</span> menu. See the discussion of roles below.</p><p>When you have specified contact and role information, click on the
+    <span class="guibutton">Invite</span> button to send an invitation. The message
+    will go out from the email address you specified during Landscape
+    setup.</p><p>Users who receive an invitation will see an HTML link in the email
+    message. Clicking on the link takes them to a page where they are asked to
+    log in to Landscape or create an Ubuntu Single Sign-on account. Once they
+    do so, they gain the administrator privileges associated with the role to
+    which they've been assigned.</p><p>It's worth noting that an administrator invitation is like a blank
+    check - the first person who clicks on the link and submits information
+    can become an administrator, even if it's not the person with the name and
+    email address to which you sent the invitation. Therefore, take care to
+    keep track of the status of administrator invitations.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp58355408"/>Disabling administrators</h2></div></div></div><p>To disable one or more administrators, tick the check boxes next to
+    their names, then click on the <span class="guibutton">Disable</span> button. The
+    adminstrator is permanently disabled and will no longer show up in
+    Landscape. Though this operation cannot be reversed, you can send another
+    invitation to the same email address.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp62992640"/>Roles</h2></div></div></div><p>A role is a set of permissions that determine what operations an
+    administrator can perform. When you define a role, you also specify a set
+    of one or more access groups to which the role applies.</p><p>Available permissions:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>View computers</p></li><li class="listitem"><p>Manage computer</p></li><li class="listitem"><p>Add computers to an access group</p></li><li class="listitem"><p>Remove computers from an access group</p></li><li class="listitem"><p>Manage pending computers (In the hosted version of Landscape,
+          pending computers are clients that have been set up with the
+          landscape-config tool but have not yet been accepted or rejected by
+          an administrator. Landscape Dedicated Server never needs to have
+          pending computers once it is set up and has an account password
+          assigned.)</p></li><li class="listitem"><p>View scripts</p></li><li class="listitem"><p>Manage scripts</p></li><li class="listitem"><p>View upgrade profiles</p></li><li class="listitem"><p>Manage upgrade profiles</p></li><li class="listitem"><p>View package profiles</p></li><li class="listitem"><p>Manage package profiles</p></li></ul></div><p>By specifying different permission levels and different access
+    groups to which they apply, you can create roles and associate them with
+    administrators to get a very granular level of control over sets of
+    computers.</p></div></div></div><div id="push"><br/></div></div><div id="footer-container"><div id="footer"><div id="footer-logo-container"><div id="footer-logo"><div id="canonical-logo"><a href="http://www.canonical.com/" class="internal"><img src="css/canonical.png" alt="Canonical"/></a></div></div></div><div id="footer-menu-container"><div id="footer-menu"><div id="system-menu"><div class="menu-content"><ul class="system-menu">
+<li class="system-help-menu footer-menu-item"><a href="http://help.landscape.canonical.com" title="help">Help</a></li>
+<li class="system-latest-news-menu footer-menu-item"><a href="http://blog.landscape.canonical.com" title="news">Latest News</a></li>
+<li class="system-api-documentation-menu footer-menu-item"><a href="https://landscape.canonical.com/static/doc/api/" title="api documentation">API Documentation</a></li>
+<li class="system-user-guide-menu footer-menu-item"><a href="./index.html" title="user guide">User Guide</a></li>
+</ul>
+</div></div></div></div></div></div></body></html>

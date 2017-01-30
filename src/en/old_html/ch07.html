@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ascii" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude"><head><title>Chapter&#160;7.&#160;Managing packages</title><link rel="stylesheet" type="text/css" href="./css/main.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="shortcut icon" type="image/x-icon" id="style" href="/css/favicon.ico"/><link rel="home" href="index.html" title="Landscape Documentation"/><link rel="up" href="index.html" title="Landscape Documentation"/><link rel="prev" href="ch06.html" title="Chapter&#160;6.&#160;Managing computers"/><link rel="next" href="ch08.html" title="Chapter&#160;8.&#160;Use cases"/></head><body><div class="document"><div class="content"><div id="header"><div id="logo-container"><a href="/"><div id="logo"><div id="logo-text">
+              LANDSCAPE
+            </div></div></a></div></div><div id="navigation"><div id="navheader"><h3>Landscape Documentation</h3><strong>Table of Contents</strong><table><tr class="nav"><td><a href="index.html">0. Landscape Documentation</a></td></tr><tr class="nav"><td><a href="ch01.html">1. About Landscape and Canonical</a></td></tr><tr class="nav"><td><a href="ch02.html">2. Basic Concepts</a></td></tr><tr class="nav"><td><a href="ch03.html">3. Managing Landscape</a></td></tr><tr class="nav"><td><a href="ch04.html">4. Managing administrators</a></td></tr><tr class="nav"><td><a href="ch05.html">5. Access groups</a></td></tr><tr class="nav"><td><a href="ch06.html">6. Managing computers</a></td></tr><tr class="selected"><td><a class="selected">Managing packages</a></td></tr><tr class="nav"><td><a href="ch08.html">8. Use cases</a></td></tr><tr class="nav"><td><a href="ch09.html">9. The Landscape API</a></td></tr></table><br/><hr class="nav"/><div id="navhoriz"><span id="navprev"><a accesskey="p" href="ch06.html">Prev</a>&#160;</span><span id="navindex">&#160;<a accesskey="u" href="index.html">Up</a>&#160;</span><span id="navnext">&#160;<a accesskey="n" href="ch08.html">Next</a></span></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="idp63018512"/>Chapter&#160;7.&#160;Managing packages</h1></div></div></div><div class="toc"><p><strong>Contents</strong></p><dl class="toc"><dt><span class="section"><a href="ch07.html#idp68040544">Package information</a></span></dt><dt><span class="section"><a href="ch07.html#definepp">Adding a package profile</a></span></dt><dt><span class="section"><a href="ch07.html#idp61168448">Exporting a package profile</a></span></dt><dt><span class="section"><a href="ch07.html#idp61216544">Modifying a package profile</a></span></dt><dt><span class="section"><a href="ch07.html#idp61219248">Deleting a package profile</a></span></dt><dt><span class="section"><a href="ch07.html#idp61222688">Repositories</a></span></dt></dl></div><p>A package is a group of related files that comprise everything you
+  need to install an application. Packages are stored in repositories, and
+  each package is managed via a package profile, which is a record of the
+  package's dependencies and conflicts.</p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp68040544"/>Package information</h2></div></div></div><p>Clicking on <span class="guimenuitem">PACKAGES</span> under the
+    <span class="guimenuitem">COMPUTERS</span> menu displays a screen where you can
+    search for information about all the packages Landscape knows about. You
+    may first specify a package name or other search string, then press Enter
+    or click on the arrow next to the box. Landscape then displays a list of
+    packages that meet the search criteria.</p><div class="figure"><a id="idp56415872"/><p class="title"><strong>Figure&#160;7.1.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="managepackages1.png"/></div></div></div></div><p><br class="figure-break"/>The top of the screen displays summary information about the
+    packages: clickable links to which computers have security updates and
+    other upgrades to be installed, and the number of computers that are
+    up-to-date and those that have not reported package information.</p><p>The next section provides a list of security issues on computers
+    that need security updates. You can click on the name or USN number of a
+    security issue to see a full Ubuntu Security Notice.</p><div class="figure"><a id="idp67155488"/><p class="title"><strong>Figure&#160;7.2.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="managepackages2.png"/></div></div></div></div><p><br class="figure-break"/>The third section displays package information in the form of
+    four numbers for each selected computer: the number of packages available
+    and installed, pending upgrades, and held upgrades. You can click on the
+    number of pending or held upgrades to see a screen that lets you modify
+    the relevant package list and set a time for the upgrades to take
+    place:</p><div class="figure"><a id="idp61407824"/><p class="title"><strong>Figure&#160;7.3.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="managepackages3.png"/></div></div></div></div><p><br class="figure-break"/>Finally, a <span class="guibutton">Request upgrades</span> button at
+    the bottom of the screen lets you quickly request that all possible
+    upgrades be applied to the selected computers. Any resulting activities
+    require explicit administrator approval.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="definepp"/>Adding a package profile</h2></div></div></div><p>Landscape uses package profiles (also called meta packages) to make
+    sure the proper software is installed when you request packages. You can
+    think of a package profile as a package with no file contents, just
+    dependencies and conflicts. With that information, the package profile can
+    trigger the installation of other packages necessary for the requested
+    package to run, or trigger the removal of software that conflicts with the
+    requested package. These dependencies and conflicts fall under the general
+    category of constraints.</p><p>To manage package profiles, click the
+    <span class="guimenuitem">PROFILES</span> menu entry under your account and the
+    <span class="action">Package profiles</span> link. The Package profiles
+    screen displays a list of existing package profiles and a link that you
+    can click to add a new package profile. </p><div class="figure"><a id="idp60228336"/><p class="title"><strong>Figure&#160;7.4.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="managepackages4.png"/></div></div></div></div><p><br class="figure-break"/>Click on that link to display the Create package profile
+    screen:</p><div class="figure"><a id="idp58423184"/><p class="title"><strong>Figure&#160;7.5.&#160;</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><img src="managepackages5.png"/></div></div></div></div><p><br class="figure-break"/>Here you enter a name for the package profile, a description
+    (which appears at the top of the package profile's information screen),
+    the access group to which the package profile should belong, and,
+    optionally, any package constraints - packages that this profile depends
+    on or conflicts with. The constraints drop-down lists lets you add
+    constraints in three ways: based on a computer's installed packages,
+    imported from a previously exported CSV file or the output of the
+    <span class="command"><strong>dpkg --get-selections</strong></span> command, or manually added. Use
+    the first option if you want to replicate one computer to another, as it
+    makes all currently installed packages that are on the selected computer
+    dependencies of the package profile you're creating. The second approach
+    imports the dependencies of a previously exported package profile. The
+    manual approach is suitable when you have few dependencies to add, all of
+    which you know.</p><p>When you save a package profile, behind the scenes Landscape creates
+    a Debian package with the specified dependencies and conflicts and gives
+    it a name and a version. Every time you change the package profile,
+    Landscape increments the version by one.</p><p>If Landscape finds computers on which the package profile should be
+    installed, it creates an activity to do so. That activity will run
+    unattended, except that you must provide explicit administrator approval
+    to remove any packages that the package profile wants to delete.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp61168448"/>Exporting a package profile</h2></div></div></div><p>You can export a package profile in order to use the same
+    constraints it's set up for with a new package profile. To export a
+    package profile, click the <span class="guimenuitem">PROFILES</span> menu entry
+    under your account and the <span class="action">Package profiles</span> link. Tick the
+    check box next to the packages you want to export, then click
+    <span class="guibutton">Download as CSV</span>.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp61216544"/>Modifying a package profile</h2></div></div></div><p>To modify a package profile, click the <span class="guimenuitem">
+    PROFILES</span> menu entry under your account and the
+    <span class="action">Package profiles</span> link, then click on the
+    name of a package profile in the list.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp61219248"/>Deleting a package profile</h2></div></div></div><p>To delete a package profile, click the <span class="guimenuitem">
+    PROFILES</span> menu entry under your account and then the <span class="action">
+    Package profiles</span> link. Tick the check box
+    next to the packages you want to delete, then click
+    <span class="guibutton">Remove</span>. The package profile is deleted immediately,
+    with no prompt to confirm the action.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp61222688"/>Repositories</h2></div></div></div><p>Packages are stored in repositories. A repository is simply a
+    designated location that stores packages. You can manage Landscape
+    repositories only via <a class="link" href="ch09.html" title="Chapter&#160;9.&#160;The Landscape API">the Landscape API</a>.</p></div></div></div><div id="push"><br/></div></div><div id="footer-container"><div id="footer"><div id="footer-logo-container"><div id="footer-logo"><div id="canonical-logo"><a href="http://www.canonical.com/" class="internal"><img src="css/canonical.png" alt="Canonical"/></a></div></div></div><div id="footer-menu-container"><div id="footer-menu"><div id="system-menu"><div class="menu-content"><ul class="system-menu">
+<li class="system-help-menu footer-menu-item"><a href="http://help.landscape.canonical.com" title="help">Help</a></li>
+<li class="system-latest-news-menu footer-menu-item"><a href="http://blog.landscape.canonical.com" title="news">Latest News</a></li>
+<li class="system-api-documentation-menu footer-menu-item"><a href="https://landscape.canonical.com/static/doc/api/" title="api documentation">API Documentation</a></li>
+<li class="system-user-guide-menu footer-menu-item"><a href="./index.html" title="user guide">User Guide</a></li>
+</ul>
+</div></div></div></div></div></div></body></html>
