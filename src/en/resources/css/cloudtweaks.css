@@ -1,0 +1,52 @@
+.row img { 
+  padding:0px; 
+  margin-bottom: 10px;
+  max-width: 700px;
+  margin-left: 140px;
+}
+
+p img {
+max-width: 800px;
+vertical-align: middle;
+}
+
+div.note, 
+div.caution, 
+div.warning {
+  margin: 0 0 15px;
+}
+
+p.note, div.note, 
+p.caution, div.caution, 
+p.warning, div.warning {
+  padding: 0 0 0 10px;
+  border-left: 6px solid;
+  border-color: #dd4814;
+  color:#000;
+  background: #fceae4;
+  border-radius: 6px;
+  -moz- border-radius: 6px;
+  -webkit- border-radius: 6px;
+}
+
+p.note strong{
+    font-weight: 700;
+    color: #df4814;
+}
+p.note code{
+    border: 4px;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 2px;
+    color: #555;
+    background: #ddd;
+}   
+
+
+.note p, .caution p, .warning p {
+  margin:0px 16px 5px;
+}
+
+.note p:last-child, .caution p:last-child, .warning p:last-child {
+  margin-bottom:0;
+}
