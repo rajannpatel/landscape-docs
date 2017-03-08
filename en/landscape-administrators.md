@@ -10,10 +10,10 @@ your account.
 
 On this page, the upper part of the screen shows a list of existing
 administrators and their email addresses. You may create as many as 1,000
-administrators, or as few as one. If you're running Landscape Dedicated Server,
-the first user you create automatically become an administrator of your
-account. If you're using the hosted version of Landscape, Canonical sends you
-an administrator invitation when your account is created. After that, you must
+administrators, or as few as one. If you're running Landscape On-Premises, the
+first user you create automatically become an administrator of your account. If
+you're using the hosted version of Landscape, Canonical sends you an
+administrator invitation when your account is created. After that, you must
 create additional administrators yourself.
 
 ## Inviting administrators
@@ -62,7 +62,7 @@ Available permissions:
 - Manage pending computers (In the hosted version of Landscape, pending
   computers are clients that have been set up with the landscape-config tool
   but have not yet been accepted or rejected by an administrator. Landscape
-  Dedicated Server never needs to have pending computers once it is set up and
+  On-Premises never needs to have pending computers once it is set up and
   has an account password assigned.)
 - View scripts
 - Manage scripts
