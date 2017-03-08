@@ -4,25 +4,23 @@
 
 ## Prerequisites
 
-You can install Landscape Dedicated Server (LDS) on any server with a dual-
+You can install Landscape On-Premises on any server with a dual-
 core processor running at 2.0GHz or higher, at least 4GB of RAM, and 5GB of
-disk space. The operating system must be Ubuntu Server 12.04 LTS x86_64 or
+disk space. The operating system must be Ubuntu Server 14.04 LTS x86_64 or
 higher. You must also have PostgreSQL installed and network ports 80/tcp
 (http) and 443/tcp (https) open. You can optionally open port 22/tcp (ssh) as
 well for general server maintenance.
 
 ## Installing
 
-Refer to the [Recommended
-Deployment](https://help.landscape.canonical.com/LDS/RecommendedDeployment)
+Refer to the [Recommended Deployment]
 guide in the Landscape wiki for all the information you need to install,
 configure, and start Landscape and the dependent services it relies on.
 
 ## Upgrading Landscape
 
-The process of upgrading an installed version of Landscape is [documented in
-the Landscape
-wiki](https://help.landscape.canonical.com/LDS/ReleaseNotes#Upgrading).
+The process of upgrading an installed version of Landscape is 
+[documented in the Landscape wiki][upgrade].
 
 ## Backing up and restoring
 
@@ -43,7 +41,7 @@ database with several thousand computers. Bear in mind that Landscape can be
 deployed using several servers, so when you are taking the offline backup
 route, remember to disable all the Landscape services on all server machines.
 See the
-[PostgreSQL documentation on backup andrestore](http://www.postgresql.org/docs/9.1/interactive/backup.html) 
+[PostgreSQL documentation on backup and restore][backup]
 for detailed instructions.
 
 In addition to the Landscape databases, make sure you back up certain
@@ -106,4 +104,6 @@ Landscape generates several log files in `/var/log/landscape`:
   * `package-upload-N`: output of package-upload server N, which is used in repository management for upload pockets, which are repositories that hold packages that are uploaded to them by authorized users
 
 
-
+[Recommended Deployment]: https://help.landscape.canonical.com/LDS/RecommendedDeployment
+[backup]: https://help.landscape.canonical.com/LDS/RecommendedDeployment
+[upgrade]: https://help.landscape.canonical.com/LDS/ReleaseNotes#Upgrading
