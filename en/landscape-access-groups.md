@@ -1,3 +1,4 @@
+Title: Access groups
 
 # Access groups
 
@@ -18,8 +19,6 @@ the ACCESS GROUPS menu under your account menu.
 
 ![Access groups pane](../media/accessgroups1.png)
 
-  
-
 To create a new access group, you must provide two pieces of information: a
 title for the access group and a parent.
 
@@ -36,7 +35,7 @@ their access group is a parent.
 When a new access group is first created, its administrators are those who
 have roles linked to its parent access group, but you can edit the roles
 associated with an access group. To change the roles associated with an access
-group, see [the section on administration](##REF##05#associatingadmins).
+group, see [the section on administration][admin].
 
 ## Adding computers to access groups
 
@@ -62,15 +61,13 @@ currently selected:
 ![Computers info screen](../media/accessgroups3.png)
 
 Find computers you wish to include (see the documentation on [selecting
-computers](##REF##/ch06.html#selectingcomputers)), then tick the checkbox next
+computers][selectcomputers], then tick the checkbox next
 to each computer you wish to select. Once you've made your selection, click on
 the INFO menu entry at the top of the page Scroll down to the bottom section,
 choose the access group you want from the drop-down list, then click Update
 access group.
 
 ![Access group drop-down](../media/accessgroups4.png)
-
-  
 
 ## Associating roles with access groups
 
@@ -95,8 +92,6 @@ link at the top of next screen. Make changes, then click Save.
 
 ![Saving changes](../media/accessgroups6.png)
 
-  
-
 ## Deleting access groups
 
 To delete an existing access group, click on the name of the group in the
@@ -107,4 +102,6 @@ delete an access group, its resources move to its parent access group.
 
 ![Deleting access groups](../media/accessgroups7.png)
 
-  
+
+[selectcomputers]: ./landscape-managing-computers.md#selectingcomputers  
+[admin]: #associating-roles-with-access-groups
