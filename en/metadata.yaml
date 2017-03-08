@@ -23,7 +23,7 @@ navigation:
         location: landscape-access-groups.md
        
       - title: Managing computers
-        location: managing-comuters.md
+        location: managing-computers.md
         
       - title: Managing packages
         location: managing-packages.md
