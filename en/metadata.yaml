@@ -13,23 +13,26 @@ navigation:
 
     children:
 
-      - title: Administrators
-        location: landscape-administrators.md
-
       - title: Managing
         location: managing.md
         
+      - title: Administrators
+        location: landscape-administrators.md
+
+      - title: Access Groups
+        location: landscape-access-groups.md
+       
       - title: Managing computers
         location: managing-comuters.md
         
       - title: Managing packages
         location: managing-packages.md
 
-      - title: Access Groups
-        location: landscape-access-groups.md
-       
       - title: Use cases
         location: landscape-use-cases.md
+
+      - title: API
+	location: landscape-api.md
         
   - title: Release notes
   
