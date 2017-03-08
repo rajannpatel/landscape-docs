@@ -1,3 +1,4 @@
+Title: Managing computers
 
 # Managing computers
 
