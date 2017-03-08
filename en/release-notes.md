@@ -2,7 +2,6 @@
 These are the release notes for Landscape 16.06.
 
 
-
 ## Highlights
  * 
 --([[https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1604|16.04 
@@ -223,88 +222,62 @@ sudo pg_dropcluster 9.3 main
 #### Release upgrade for manual (non-quickstart) deployments 
 
 The release upgrade process for the manual non-quickstart deployment is a bit 
-more complicated and needs to be done in steps. A summary is shown in the table 
-below, in the order the steps should happen:
-||||<style="text-align: center;background-color: #D0D0D0"> '''APP''' 
-||||<style="text-align: center;background-color: #D0D0D0"> '''DB''' ||
-|| '''LDS''' || '''Ubuntu''' || '''Postgresql''' || '''Ubuntu''' ||
-||<style="text-align: center;background-color:#F0F0F0;"> 16.03 '''(1)''' 
-||<style="text-align: center;"> Trusty ||<style="text-align: center;"> 9.3 
-||<style="text-align: center;"> Trusty ||
-||<style="text-align: center;background-color:#F0F0F0;"> 16.06 '''(2)''' 
-||<style="text-align: center;background-color:#F0F0F0;"> Trusty '''(3)''' 
-||<style="text-align: center;"> 9.3 ||<style="text-align: center;"> Trusty ||
-||<style="text-align: center;"> 16.06 ||<style="text-align: 
-center;background-color:#F0F0F0;"> Xenial '''(4)''' ||<style="text-align: 
-center;"> 9.3 ||<style="text-align: center;background-color:#F0F0F0;"> Trusty 
-'''(5)''' ||
-||<style="text-align: center;"> 16.06 ||<style="text-align: center;"> Xenial 
-||<style="text-align: center;background-color:#F0F0F0;"> 9.3 '''(7)''' 
-||<style="text-align: center;background-color:#F0F0F0;"> Xenial '''(6)''' ||
-||<style="text-align: center;"> 16.06 ||<style="text-align: center;"> Xenial 
-||<style="text-align: center;background-color:#F0F0F0;"> 9.5 '''(8)''' 
-||<style="text-align: center;"> Xenial ||
+more complicated and needs to be done in steps.
 
 Upgrade the APP server first:
- * Upgrade Landscape 16.03 to 16.06 in the APP server, still on Ubuntu 14.04 LTS 
-("trusty"), following the steps outlined in the non-quickstart upgrade section.
- * Configure the release update manager to keep third-party repositories enabled 
-by running this command:
+ - Upgrade Landscape 16.03 to 16.06 in the APP server, still on Ubuntu 14.04 LTS ("trusty"), 
+ following the steps outlined in the non-quickstart upgrade section.
+ - Configure the release update manager to keep third-party repositories enabled by running this command:  
 ```bash
 echo -e "[Sources]\nAllowThirdParty=yes" | sudo tee 
 /etc/update-manager/release-upgrades.d/allow.cfg
 ```
- * Upgrade Ubuntu 14.04 LTS ("trusty") to Ubuntu 16.04 LTS ("xenial") using the 
+ - Upgrade Ubuntu 14.04 LTS ("trusty") to Ubuntu 16.04 LTS ("xenial") using the 
 `do-release-upgrade` tool. First try using the tool as is:
-
 ```bash
 sudo do-release-upgrade
 ```
-If it tells you that no new releases are available, try adding the `-d` 
-parameter:
-
+  - If you get a message that no new releases are available, try adding the `-d` parameter:
 ```bash
 sudo do-release-upgrade -d
 ```
-Pay close attention to its output: it should say that it is starting an upgrade 
-to "xenial". Reboot after the upgrade is done.
- * Verify that Landscape is still operating normally.
- * Stop all Landscape services:
-
+  Pay close attention to its output: it should say that it is starting an upgrade 
+  to "xenial". Reboot after the upgrade is done.
+  - Verify that Landscape is still operating normally.
+  - Stop all Landscape services:
 ```bash
 sudo lsctl stop
 ```
 
 Now we will upgrade the database server:
 
- * While still on postgresql 9.3, upgrade the server from Ubuntu 14.04 LTS 
-("trusty") to Ubuntu 16.04 LTS ("xenial") using the `do-release-upgrade` tool 
-just like before.
- * Install the 9.5 postgresql packages:
+ - While still on postgresql 9.3, upgrade the server from Ubuntu 14.04 LTS 
+  ("trusty") to Ubuntu 16.04 LTS ("xenial") using the `do-release-upgrade` tool 
+  just like before.
+ - Install the 9.5 postgresql packages:
 ```bash
-sudo apt install postgresql-9.5 postgresql-plpython-9.5 postgresql-contrib-9.5 
+sudo apt install postgresql-9.5 postgresql-plpython-9.5 postgresql-contrib-9.5  
 postgresql-client-9.5 postgresql-9.5-debversion
 ```
-If you get a warning about `/etc/postgresql-common/createcluster.conf` while 
-configuring `postgresql-common`, select to keep the local version.
- * Drop the newly created 9.5 cluster:
+  If you get a warning about `/etc/postgresql-common/createcluster.conf` while 
+  configuring `postgresql-common`, select to keep the local version.
+ -  Drop the newly created 9.5 cluster:
 
 ```bash
 sudo pg_dropcluster 9.5 main --stop
 ```
- * Upgrade the 9.3 cluster:
+ - Upgrade the 9.3 cluster:
 
 ```bash
 sudo pg_upgradecluster 9.3 main
 ```
- * Start the Landscape services:
+ - Start the Landscape services:
 
 ```bash
 sudo lsctl start
 ```
- * Verify that Landscape is working correctly.
- * If you are happy with the upgrade results, the previous 9.3 cluster can be 
-dropped:
+ - Verify that Landscape is working correctly.
+ - If you are happy with the upgrade results, the previous 9.3 cluster can be dropped:
 
 ```bash
 sudo pg_dropcluster 9.3 main
