@@ -37,3 +37,18 @@ navigation:
     
       - title: Release notes
         location: release-notes.md
+        
+  - title: Landscape On-Premises
+
+    children:
+       
+      - title: Overview
+        location: onprem-overview.md
+      
+      - title: Versions
+        location: onprem-overview.md#versions
+       
+      - title: Installing
+        location: onprem-installing.md
+        
+      - title: Backup and Restore
