@@ -18,8 +18,6 @@ the ACCESS GROUPS menu under your account menu.
 
 ![Access groups pane](../media/accessgroups1.png)
 
-  
-
 To create a new access group, you must provide two pieces of information: a
 title for the access group and a parent.
 
@@ -70,8 +68,6 @@ access group.
 
 ![Access group drop-down](../media/accessgroups4.png)
 
-  
-
 ## Associating roles with access groups
 
 An administrator may manage an access group if he is associated with a role
@@ -94,8 +90,6 @@ the group in the ACCESS GROUPS screen, then click on the Edit access group
 link at the top of next screen. Make changes, then click Save.
 
 ![Saving changes](../media/accessgroups6.png)
-
-  
 
 ## Deleting access groups
 

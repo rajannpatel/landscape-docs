@@ -14,9 +14,7 @@ first specify a package name or other search string, then press Enter or click
 on the arrow next to the box. Landscape then displays a list of packages that
 meet the search criteria.
 
-**Figure&nbsp;_place_holder;7.1.&nbsp;_place_holder;**
-
-![](Chapter%C2%A07.%C2%A0Managing%20packages_files/managepackages1.png)
+![Package search](../media/managepackages1.png)
 
   
 The top of the screen displays summary information about the packages:
@@ -28,22 +26,16 @@ The next section provides a list of security issues on computers that need
 security updates. You can click on the name or USN number of a security issue
 to see a full Ubuntu Security Notice.
 
-**Figure&nbsp;_place_holder;7.2.&nbsp;_place_holder;**
+![Package information](../media/managepackages2.png)
 
-![](Chapter%C2%A07.%C2%A0Managing%20packages_files/managepackages2.png)
-
-  
 The third section displays package information in the form of four numbers for
 each selected computer: the number of packages available and installed,
 pending upgrades, and held upgrades. You can click on the number of pending or
 held upgrades to see a screen that lets you modify the relevant package list
 and set a time for the upgrades to take place:
 
-**Figure&nbsp;_place_holder;7.3.&nbsp;_place_holder;**
+![Package upgrades](../media/managepackages3.png)
 
-![](Chapter%C2%A07.%C2%A0Managing%20packages_files/managepackages3.png)
-
-  
 Finally, a Request upgrades button at the bottom of the screen lets you
 quickly request that all possible upgrades be applied to the selected
 computers. Any resulting activities require explicit administrator approval.
@@ -64,18 +56,13 @@ and the Package profiles link. The Package profiles screen displays a list of
 existing package profiles and a link that you can click to add a new package
 profile.
 
-**Figure&nbsp;_place_holder;7.4.&nbsp;_place_holder;**
 
-![](Chapter%C2%A07.%C2%A0Managing%20packages_files/managepackages4.png)
+![Package profiles](../media/managepackages4.png)
 
-  
 Click on that link to display the Create package profile screen:
 
-**Figure&nbsp;_place_holder;7.5.&nbsp;_place_holder;**
+![Create package profile](../media/managepackages5.png)
 
-![](Chapter%C2%A07.%C2%A0Managing%20packages_files/managepackages5.png)
-
-  
 Here you enter a name for the package profile, a description (which appears at
 the top of the package profile's information screen), the access group to
 which the package profile should belong, and, optionally, any package
@@ -124,7 +111,6 @@ immediately, with no prompt to confirm the action.
 
 Packages are stored in repositories. A repository is simply a designated
 location that stores packages. You can manage Landscape repositories only via
-[the Landscape API](https://landscape.canonical.com/static/doc/user-
-guide/ch09.html).
+[the Landscape API][landscapeapi]
 
-  
+[landscapeapi]: ./landscape-api.md
