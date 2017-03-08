@@ -103,4 +103,4 @@ delete an access group, its resources move to its parent access group.
 
 
 [selectcomputers]: ./landscape-managing-computers.md#selectingcomputers  
-[admin]: ./landscape-access-groups.md#associatingadmins
+[admin]: #associating-roles-with-access-groups
