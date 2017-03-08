@@ -30,12 +30,11 @@ Advantage][ua], or run it on premises via Landscape Dedicated Server.
 ## Ubuntu Advantage
 
 Ubuntu Advantage comprises [systems management tools][sysman], [technical
-support][techsupport](http://www.canonical.com/enterprise-services/ubuntu-
-advantage/support), access to online resources and support
-engineers, [training][training] and [legal assurance][assurance] to
-keep organizations on top of their Ubuntu [server][server], [desktop][desktop],
-and [cloud][cloud] deployments. Advantage provides subscriptions at various
-support levels to help organizations maintain the level of support they need.
+support][techsupport], access to online resources and support engineers,
+[training][training] and [legal assurance][assurance] to keep organizations on
+top of their Ubuntu [server][server], [desktop][desktop], and [cloud][cloud]
+deployments. Advantage provides subscriptions at various support levels to help
+organizations maintain the level of support they need.
 
 [ubuntu]: https://www.ubuntu.com/desktop
 [ua]: http://shop.canonical.com/index.php?cPath=41
@@ -43,6 +42,6 @@ support levels to help organizations maintain the level of support they need.
 [techsupport]: https://www.ubuntu.com/support/plans-and-pricing
 [training]: https://www.ubuntu.com/cloud/training
 [assurance]: https://www.ubuntu.com/legal/ubuntu-advantage/assurance
-[server]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-for-servers
-[desktop]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-desktop
-[cloud]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-for-clouds
+[server]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-for-server
+[desktop]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-for-desktop
+[cloud]: https://www.ubuntu.com/support/plans-and-pricing#ubuntu-advantage-for-cloud
