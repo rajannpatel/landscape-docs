@@ -1,3 +1,5 @@
+Title: Managing administrators
+
 # Managing administrators
 
 Administrators are people who are authorized to manage computers using
