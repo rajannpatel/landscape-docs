@@ -34,7 +34,7 @@ their access group is a parent.
 When a new access group is first created, its administrators are those who
 have roles linked to its parent access group, but you can edit the roles
 associated with an access group. To change the roles associated with an access
-group, see [the section on administration](##REF##05#associatingadmins).
+group, see [the section on administration][admin].
 
 ## Adding computers to access groups
 
@@ -60,7 +60,7 @@ currently selected:
 ![Computers info screen](../media/accessgroups3.png)
 
 Find computers you wish to include (see the documentation on [selecting
-computers](##REF##/ch06.html#selectingcomputers)), then tick the checkbox next
+computers][selectcomputers], then tick the checkbox next
 to each computer you wish to select. Once you've made your selection, click on
 the INFO menu entry at the top of the page Scroll down to the bottom section,
 choose the access group you want from the drop-down list, then click Update
@@ -101,4 +101,6 @@ delete an access group, its resources move to its parent access group.
 
 ![Deleting access groups](../media/accessgroups7.png)
 
-  
+
+[selectcomputers]: ./landscape-managing-computers.md#selectingcomputers  
+[admin]: ./landscape-access-groups.md#associatingadmins
