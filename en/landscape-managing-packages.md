@@ -1,3 +1,4 @@
+Title: Managing packages
 
 # Managing packages
 
