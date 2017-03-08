@@ -1,3 +1,5 @@
+Title: Managing Landscape
+TODO: Links to Help are/will be broken - backup and restore don't exist. 
 
 # Managing Landscape
 
@@ -40,70 +42,69 @@ few minutes for databases at smaller sites, or about half an hour for a
 database with several thousand computers. Bear in mind that Landscape can be
 deployed using several servers, so when you are taking the offline backup
 route, remember to disable all the Landscape services on all server machines.
-See the
-[PostgreSQL documentation on backup and restore][backup]
-for detailed instructions.
+
+See the [PostgreSQL documentation on backup and restore][backup] for detailed
+instructions.
 
 In addition to the Landscape databases, make sure you back up certain
 additional important files:
 
-  * `/etc/landscape`: configuration files and the LDS license 
-
-  * `/etc/default/landscape-server`: file to configure which services will start on this machine
-
-  * `/var/lib/landscape/hash-id-databases`: these files are recreated by a weekly cron job, which can take several minutes to run, so backing them up can save time
-
-  * `/etc/apache2/sites-available/`: the Landscape Apache vhost configuration file, usually named after the fully qualified domain name of the server
-
-  * `/etc/ssl/certs/`: the Landscape server X509 certificate
-
-  * `/etc/ssl/private/`: the Landscape server X509 key file
-
-  * `/etc/ssl/certs/landscape_server_ca.crt`: if in use, this is the CA file for the internal CA used to issue the Landscape server certificates
-
-  * `/etc/postgresql/8.4/main/`: PostgreSQL configuration files - in particular, postgresql.conf for tuning and pg_hba.conf for access rules. These files may be in a separate host, dedicated to the database. Use subdirectory 9.1 for PostgreSQL version 9.1, etc.
-
-  * `/var/log/landscape`: all LDS log files
+- `/etc/landscape`: configuration files and the Landscape On-Premises license 
+- `/etc/default/landscape-server`: file to configure which services will start on this machine
+- `/var/lib/landscape/hash-id-databases`: these files are recreated by a weekly
+  cron job, which can take several minutes to run, so backing them up can save
+  time
+- `/etc/apache2/sites-available/`: the Landscape Apache vhost configuration
+  file, usually named after the fully qualified domain name of the server
+- `/etc/ssl/certs/`: the Landscape server X509 certificate
+- `/etc/ssl/private/`: the Landscape server X509 key file
+- `/etc/ssl/certs/landscape_server_ca.crt`: if in use, this is the CA file for
+  the internal CA used to issue the Landscape server certificates
+- `/etc/postgresql/8.4/main/`: PostgreSQL configuration files - in particular,
+  postgresql.conf for tuning and pg_hba.conf for access rules. These files may
+  be in a separate host, dedicated to the database. Use subdirectory 9.1 for
+  PostgreSQL version 9.1, etc.
+- `/var/log/landscape`: all Landscape On-Premises log files
 
 ## Log files
 
 Landscape generates several log files in `/var/log/landscape`:
 
-  * `update-alerts`: output of that cron job. Used to determine which computers are offline
+- `update-alerts`: output of that cron job. Used to determine which computers
+  are offline
+- `process-alerts`: output of that cron job. Used to trigger alerts and send
+  out alert email messages
+- `process-profiles`: output of that cron job. Used to process upgrade profiles
+- `sync_lds_releases`: output of that cron job. Used to check for new Landscape
+  On-Premises releases
+- `maintenance`: output of that cron job. Removes old monitoring data and
+  performs other maintenance tasks
+- `update_security_db`: output of that cron job. Checks for new Ubuntu Security
+  Notices
+- `appserver-N`: output of the application server N, where N (here and below)
+  is a number that distinguishes between multiple instances that may be running
+- `appserver_access-N`: access log for application server N; the application
+  server handles the web-based user interface
+- `message_server-N`: output of message server N; the message server handles
+  communication between the clients and the server
+- `message_server_access-N`: access log for message server N
+- `pingserver-N`: output of pingserver N; the pingserver tracks client
+  heartbeats to watch for unresponsive clients
+- `pingtracker-N`: complementary log for pingserver N detailing how the
+  algorithm is working
+- `async-frontend-N`: log for async-frontend server N; the async front end
+  delivers AJAX-style content to the web user interface
+- `api-N`: log for API server N; the API services handles requests from
+  landscape-api clients
+- `combo-loader-N`: log for combo-loader server N, which is responsible for
+  delivering CSS and JavaScript
+- `job-handler-N`: log for job-handler server N; the job handler service
+  controls individual back-end tasks on the server
+- `package-upload-N`: output of package-upload server N, which is used in
+  repository management for upload pockets, which are repositories that hold
+  packages that are uploaded to them by authorized users
 
-  * `process-alerts`: output of that cron job. Used to trigger alerts and send out alert email messages
 
-  * `process-profiles`: output of that cron job. Used to process upgrade profiles
-
-  * `sync_lds_releases`: output of that cron job. Used to check for new LDS releases
-
-  * `maintenance`: output of that cron job. Removes old monitoring data and performs other maintenance tasks
-
-  * `update_security_db`: output of that cron job. Checks for new Ubuntu Security Notices
-
-  * `appserver-N`: output of the application server N, where N (here and below) is a number that distinguishes between multiple instances that may be running
-
-  * `appserver_access-N`: access log for application server N; the application server handles the web-based user interface
-
-  * `message_server-N`: output of message server N; the message server handles communication between the clients and the server
-
-  * `message_server_access-N`: access log for message server N
-
-  * `pingserver-N`: output of pingserver N; the pingserver tracks client heartbeats to watch for unresponsive clients
-
-  * `pingtracker-N`: complementary log for pingserver N detailing how the algorithm is working
-
-  * `async-frontend-N`: log for async-frontend server N; the async front end delivers AJAX-style content to the web user interface
-
-  * `api-N`: log for API server N; the API services handles requests from landscape-api clients
-
-  * `combo-loader-N`: log for combo-loader server N, which is responsible for delivering CSS and JavaScript
-
-  * `job-handler-N`: log for job-handler server N; the job handler service controls individual back-end tasks on the server
-
-  * `package-upload-N`: output of package-upload server N, which is used in repository management for upload pockets, which are repositories that hold packages that are uploaded to them by authorized users
-
-
-[Recommended Deployment]: https://help.landscape.canonical.com/LDS/RecommendedDeployment
+[Recommended Deployment]: https://help.landscape.canonical.com/FrontPage
 [backup]: https://help.landscape.canonical.com/LDS/RecommendedDeployment
 [upgrade]: https://help.landscape.canonical.com/LDS/ReleaseNotes#Upgrading

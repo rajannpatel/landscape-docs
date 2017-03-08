@@ -29,7 +29,7 @@ computers. Landscape is particularly adept at security updates; it can
 highlight newly available packages that involve security fixes so they can be
 applied quickly. You can use Landscape as a hosted service as part of [Ubuntu
 Advantage](http://shop.canonical.com/index.php?cPath=41), or run it on
-premises via Landscape Dedicated Server.
+premises via Landscape On-Premises.
 
 ## Ubuntu Advantage
 

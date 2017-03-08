@@ -81,7 +81,7 @@ mirror the restricted component, which is smaller. You must have set up the API
 client already, then run the following script:
 
 ```bash
-# import a secret GPG key. This will be used by LDS to sign the repository.
+# import a secret GPG key. This will be used by Landscape On-Premises to sign the repository.
 # export a GPG secret key using gpg --export-secret-keys -a KEYID > secret-key.pem
 # Note: the secret key must NOT have a passphrase. To remove the passphrase from a key,
 # use gpg --edit-key KEYID before exporting it. See gpg(1) for details.
@@ -143,9 +143,9 @@ $ landscape-api sync-mirror-pocket updates precise ubuntu
 (...)
 
 # while the sync happens, we can create a repository profile which we will later apply to computers:
-$ landscape-api create-repository-profile --description "This profile is for LDS servers." lds-profile
+$ landscape-api create-repository-profile --description "This profile is for Landscape On-Premises servers." lds-profile
 {u'all_computers': False,
- u'description': u'This profile is for LDS-servers.',
+ u'description': u'This profile is for Landscape On-Premises servers.',
  u'id': 5,
  u'name': u'lds-profile',
  u'pockets': [],
@@ -154,7 +154,7 @@ $ landscape-api create-repository-profile --description "This profile is for LDS
 # now we associate computers with the tag "lds" to this repository profile:
 $ landscape-api associate-repository-profile --tags lds lds-profile
 {u'all_computers': False,
- u'description': u'This-profile-is-for-LDS-servers.',
+ u'description': u'This-profile-is-for-Landscape-On-Premises-servers.',
  u'id': 5,
  u'name': u'lds-profile',
  u'pockets': [],
