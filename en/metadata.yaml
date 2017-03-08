@@ -23,10 +23,10 @@ navigation:
         location: landscape-access-groups.md
        
       - title: Managing computers
-        location: managing-computers.md
+        location: landscape-managing-computers.md
         
       - title: Managing packages
-        location: managing-packages.md
+        location: landscape-managing-packages.md
 
       - title: Use cases
         location: landscape-use-cases.md
