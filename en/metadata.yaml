@@ -14,7 +14,7 @@ navigation:
     children:
 
       - title: Managing
-        location: managing.md
+        location: landscape-managing.md
         
       - title: Administrators
         location: landscape-administrators.md
