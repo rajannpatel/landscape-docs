@@ -111,4 +111,4 @@ attention. You can manage alerts from the ALERTS menu under your account.
 [releasenotes]: ./release-notes.md#repository-management-getting-started
 [createaccess]: ./landscape-access-groups.md#creating-access-groups
 [addcomputers]: ./landscape-access-groups.md#adding-computers-to-access-groups
-[admins]: ./landscape-access-groups.md#associtating-roles-with-access-group
+[admins]: ./landscape-access-groups.md#associatating-roles-with-access-group

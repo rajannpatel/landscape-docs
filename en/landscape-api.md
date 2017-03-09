@@ -60,11 +60,11 @@ Some terminology:
 |Term               | Meaning	                             | Example
 |-------------------|----------------------------------------|--------------------------------------
 |Distribution       | A flavor of Linux                      | Ubuntu
-|Series             | A distribution release                 | Natty, Oeiric, Precise
+|Series             | A distribution release                 | Natty, Oneiric, Precise
 |Pocket             | Where packages are stored              | updates, security, release
 |Suite              | A combination of a series and a pocket | precise-updates
 |Components         | an apt sources.list line               | main, extra, universe
-|Architecture       | A computer's CPU/hardware	             |i386, amd64, source (for source packages)
+|Architecture       | A computer's CPU/hardware	             | i386, amd64, source (for source packages)
 
 !!! Note: The special pocket release never gets mentioned in a suite.
 
