@@ -5,7 +5,7 @@ These are the release notes for Landscape 16.06.
 ## Highlights
   
  - **Landscape 16.06.1 point release:**
-   - [16.07 Openstack charms]
+   - [16.07 OpenStack charms]
  - Automatic update of Ubuntu images in the cloud (trusty and xenial)
  - OpenStack Mitaka
  - Ubuntu 16.04 LTS ("xenial") support
@@ -17,16 +17,16 @@ This section describes the changes and new features in more detail.
 Landscape 16.06 is the first Landscape release to support both Ubuntu 14.04 LTS 
 ("trusty") and Ubuntu 16.04 LTS ("xenial").
 
-### Openstack Mitaka 
-The Autopilot in Landscape 16.06 will deploy a Openstack Mitaka cloud using the 
+### OpenStack Mitaka 
+The Autopilot in Landscape 16.06 will deploy an OpenStack Mitaka cloud using the 
 [[https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1604|16.04 
-Openstack charms]].
+OpenStack charms]].
 
 ### Automatic cloud image refresh 
-The Openstack Mitaka cloud deployed by the Autopilot includes two amd64 images 
+The OpenStack Mitaka cloud deployed by the Autopilot includes two amd64 images 
 by default: Ubuntu 14.04 LTS ("trusty") and Ubuntu 16.04 LTS ("xenial"). These 
 images will be refreshed daily, so if new releases are available, they will be 
-downloaded and made available in Openstack's Glance.
+downloaded and made available in OpenStack's Glance.
 
 ## Upgrade notes 
 Landscape 16.06 supports Ubuntu 16.04 LTS ("xenial") and Ubuntu 14.04 LTS 
@@ -292,7 +292,7 @@ supported at this time.
 ## Other changes of note 
 
 ### Storage devices referenced by IDs
-Openstack Autopilot deployments will use disk IDs when referencing block devices 
+OpenStack Autopilot deployments will use disk IDs when referencing block devices 
 for storage charms. This requires virtual machines to be configured to supply 
 these IDs.
 
@@ -342,9 +342,9 @@ image" activity that stays "In progress" forever.
 The workaround is to abort the deployment and try again.
 
 
-#### Swift storage accounting incomplete in the Autopilot Openstack dashboard 
+#### Swift storage accounting incomplete in the Autopilot OpenStack dashboard 
 When Swift is used for storage, it's possible that the amount of storage 
-reported in the Autopilot Openstack dashboard graphs is less than the amount 
+reported in the Autopilot OpenStack dashboard graphs is less than the amount 
 available.
 
 This is being tracked as 
@@ -361,7 +361,7 @@ this from wherever you deployed the Landscape bundle  (this is one long line):
 juju ssh landscape-server/0 sudo 'JUJU_HOME=/var/lib/landscape/juju-homes/`sudo 
 ls -rt /var/lib/landscape/juju-homes/ | tail -1` sudo -u landscape -E bash'
 ```
- * Once there, you will have access to the Openstack environment. Now it's just 
+ * Once there, you will have access to the OpenStack environment. Now it's just 
 a matter of issuing the restart command to all swift-storage units:
 ```bash
 juju run --service swift-storage 'sudo service landscape-client restart'
@@ -383,4 +383,4 @@ sudo JUJU_HOME=/var/lib/landscape/juju-homes/`sudo ls -rt
 juju run --service swift-storage 'sudo service landscape-client restart'
 ```
 
-[16.07 Openstack charms]: https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1607
+[16.07 OpenStack charms]: https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1607
