@@ -3,15 +3,12 @@ These are the release notes for Landscape 16.06.
 
 
 ## Highlights
- * 
---([[https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1604|16.04 
-Openstack charms]])--
- * '''Landscape 16.06.1 point release:'''
-   * [[https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1607|16.07 
-Openstack charms]]
- * Automatic update of Ubuntu images in the cloud (trusty and xenial)
- * OpenStack Mitaka
- * Ubuntu 16.04 LTS ("xenial") support
+  
+ - **Landscape 16.06.1 point release:**
+   - [16.07 Openstack charms]
+ - Automatic update of Ubuntu images in the cloud (trusty and xenial)
+ - OpenStack Mitaka
+ - Ubuntu 16.04 LTS ("xenial") support
 
 ## Changes and new features 
 This section describes the changes and new features in more detail.
@@ -62,34 +59,38 @@ When prompted, reply with `N` to any dpkg questions about configuration files so
 the existing files stay untouched. The quickstart package will make any needed 
 modifications to your configuration files automatically. 
 
-### Non-quickstart upgrade 
+### Non-quickstart upgrade
+
 Follow these steps to perform a non-quickstart upgrade, that is, you did not use 
 the landscape-server-quickstart package when installing Landscape 16.03:
- * stop all landscape services on all machines that make up your non-quickstart 
-deployment, except the database service: `sudo lsctl stop`
- * add the Landscape 16.06 PPA: `sudo add-apt-repository ppa:landscape/16.06`
- * refresh the apt database and upgrade: `sudo apt-get update && sudo apt-get 
-dist-upgrade`
- * answer with `N` to any dpkg questions about Landscape configuration files
- * if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then 
-the required schema upgrade will be performed as part of the package upgrade and 
-all services will be running at the end. The upgrade is finished.
- * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the 
-services are restarted at the end of the upgrade. That's expected. You now have 
-to perform the schema upgrade manually with this command: 
+
+ - stop all landscape services on all machines that make up your non-quickstart 
+   deployment, except the database service: `sudo lsctl stop`
+ - add the Landscape 16.06 PPA: `sudo add-apt-repository ppa:landscape/16.06`
+ - refresh the apt database and upgrade: 
+   `sudo apt-get update && sudo apt-get dist-upgrade`
+ - answer with `N` to any dpkg questions about Landscape configuration files
+ - if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then 
+   the required schema upgrade will be performed as part of the package upgrade and 
+   all services will be running at the end. The upgrade is finished.
+ - if `UPGRADE_SCHEMA` is disabled, then you will have failures when the 
+   services are restarted at the end of the upgrade. That's expected. You now have 
+   to perform the schema upgrade manually with this command: 
 
 ```bash
-    sudo setup-landscape-server
+sudo setup-landscape-server
 ```
-  After all these steps are completed, the Landscape services can be started: 
+
+After all these steps are completed, the Landscape services can be started: 
 ```bash
-    sudo lsctl start
+sudo lsctl start
 ```
 
 ### Charm upgrade 
 
 Starting with Landscape 15.10, Juju deployed Landscape can be upgraded in place. 
- If you have just one landscape server unit, please follow this procedure:
+
+If you have just one landscape server unit, please follow this procedure:
 
 ```bash
 juju upgrade-charm landscape-server
@@ -381,3 +382,5 @@ sudo JUJU_HOME=/var/lib/landscape/juju-homes/`sudo ls -rt
 ```bash
 juju run --service swift-storage 'sudo service landscape-client restart'
 ```
+
+[16.07 Openstack charms]: https://wiki.ubuntu.com/ServerTeam/OpenStackCharms/ReleaseNotes1607
