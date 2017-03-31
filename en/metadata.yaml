@@ -34,7 +34,7 @@ navigation:
       - title: API
         location: landscape-api.md
 
-  - title: Landscape On-Premises
+  - title: Landscape On&#8209;Premises
 
     children:
 
