@@ -3,28 +3,28 @@ navigation:
 
     children:
 
-      - title: About 
-        location: landscape-intro.md
+      - title: About
+        location: index.md
 
       - title: Concepts
         location: landscape-concepts.md
-        
+
   - title: User Guide
 
     children:
 
       - title: Managing
         location: landscape-managing.md
-        
+
       - title: Administrators
         location: landscape-administrators.md
 
       - title: Access Groups
         location: landscape-access-groups.md
-       
+
       - title: Managing computers
         location: landscape-managing-computers.md
-        
+
       - title: Managing packages
         location: landscape-managing-packages.md
 
@@ -33,25 +33,21 @@ navigation:
 
       - title: API
         location: landscape-api.md
-        
-  - title: Release notes
-  
-    children:
-    
-      - title: Release notes
-        location: release-notes.md
-        
+
   - title: Landscape On-Premises
 
     children:
-       
+
       - title: Overview
         location: onprem-overview.md
-      
+
       - title: Versions
         location: onprem-overview.md#versions
-       
+
       - title: Installing
         location: onprem-installing.md
-        
+
       - title: Backup and Restore
+
+  - title: Release notes
+    location: release-notes.md
