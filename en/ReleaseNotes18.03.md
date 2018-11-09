@@ -157,7 +157,7 @@ timing:
 
 You can take advantage of the fact that Landscape 18.03 supports both Ubuntu 16.04 LTS ("xenial") and Ubuntu 18.04 LTS ("bionic") to upgrade your Landscape deployment from "xenial" to "bionic". This section details the upgrade procedure depending on how you deployed Landscape.
 
-## Release upgrade for quickstart deployments
+### Release upgrade for quickstart deployments
 
 Follow these steps in order:
 
