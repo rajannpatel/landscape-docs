@@ -4,6 +4,9 @@ Title: Landscape
 
 Landscape is a tool for remotely managing computers that run Ubuntu.
 
+[User Guide](https://landscape.canonical.com/static/doc/user-guide/)
+[API Documentation](https://landscape.canonical.com/static/doc/api/)
+
 ## Landscape On-Premises
 
 Landscape On-Premises, is the standalone version of Landscape that you can install on your own network.
