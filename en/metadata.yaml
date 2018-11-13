@@ -38,16 +38,11 @@ navigation:
 
     children:
 
-      - title: Overview
-        location: onprem-overview.md
+      - title: Quickstart Installation
+        location: landscape-install-quickstart.html
 
-      - title: Versions
-        location: onprem-overview.md#versions
+      - title: Juju Installation
+        location: landscape-install-juju.html
 
-      - title: Installing
-        location: onprem-installing.md
-
-      - title: Backup and Restore
-
-  - title: Release notes
-    location: release-notes.md
+      - title: Manual Installation
+        location: landscape-install-manual.html
