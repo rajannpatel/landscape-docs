@@ -1,7 +1,7 @@
 Title: Landscape 18.03 Manual Installation
 
 
-# Introduction
+# Manual Installation
 
 This is the baseline deployment recommendation we have for the LDS product when Juju is not used. At a minimum, we have two machines:
 
