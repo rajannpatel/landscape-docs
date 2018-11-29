@@ -50,3 +50,7 @@ navigation:
 
   - title: API
     location: api.md
+
+site_footer_links:
+  - title: 'Report an issue on this site'
+    location: https://github.com/canonical-docs/landscape-docs/issues
