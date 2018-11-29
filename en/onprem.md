@@ -4,24 +4,24 @@ Landscape On-Premises, is the standalone version of Landscape that you can insta
 
 Each major Landscape version is supported for a period of one year after release. Here are the current supported releases:
 
-| **major version**                | **Release date** | **Supported until** | **Version of Ubuntu**  | 
-| ----------------------           | ---------------- | ------------------- | ---------------------  |
-| [18.03](ReleaseNotes18.03.html)  | 2018-Jun         | **2019-Jun**        | 16.04 LTS or 18.04 LTS |
-| [17.03](ReleaseNotes17.03.html)  | 2017-Mar         | **2019-Mar**        | 16.04 LTS              |
+| **major version**                  | **Release date** | **Supported until** | **Version of Ubuntu**  | 
+| ----------------------             | ---------------- | ------------------- | ---------------------  |
+| [18.03](./ReleaseNotes18.03.html)  | 2018-Jun         | **2019-Jun**        | 16.04 LTS or 18.04 LTS |
+| [17.03](./ReleaseNotes17.03.html)  | 2017-Mar         | **2019-Mar**        | 16.04 LTS              |
 
 
 ### Installing On-Prem
 
 Here is how you can get started:
 
- * **[Quickstart](landscape-install-quickstart.html)**, for when you don't have Juju but quickly want to check out On-Prem. Not recommended for production environments when having more than 500 clients.
+ * **[Quickstart](./landscape-install-quickstart.html)**, for when you don't have Juju but quickly want to check out On-Prem. Not recommended for production environments when having more than 500 clients.
 
 ``` 
 sudo add-apt-repository -u ppa:landscape/18.03
 sudo apt-get install landscape-server-quickstart
 ```
 
- * **[Juju deployed](landscape-install-juju.html)** for a truly scalable deployment. Select the bundle that best serves your environment:
+ * **[Juju deployed](./landscape-install-juju.html)** for a truly scalable deployment. Select the bundle that best serves your environment:
 
 **landscape-dense-maas** if you have the MAAS provider, you can deploy all the services using containers:
 
@@ -41,4 +41,4 @@ Once the deployment has finished, grab the address of the first `haproxy` unit a
 juju status haproxy
 ```
 
-* **[Manual installation](landscape-install-manual.html)**: for when you don't have a suitable Juju environment but need a scalable deployment.
+* **[Manual installation](./landscape-install-manual.html)**: for when you don't have a suitable Juju environment but need a scalable deployment.

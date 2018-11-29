@@ -95,9 +95,6 @@ monitoring period from the drop-down box at the top of the window.
 
 Manage them via a [package profile].
 
-
-
-
   
-[upgrade profiles]: ./landscape-concepts.md#upgrade-profiles
+[upgrade profiles]: ./concepts.md#upgrade-profiles
 [package profile]: ./landscape-managing-packages.md#adding-a-package-profile
