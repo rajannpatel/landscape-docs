@@ -1,20 +1,14 @@
 navigation:
   - title: Introduction
-
-    children:
-
-      - title: About
-        location: index.md
-
-      - title: Concepts
-        location: landscape-concepts.md
+    location: index.md
 
   - title: User Guide
+    location: user-guide.md
 
     children:
 
-      - title: Managing
-        location: landscape-managing.md
+      - title: Concepts
+        location: concepts.md
 
       - title: Administrators
         location: landscape-administrators.md
@@ -31,18 +25,28 @@ navigation:
       - title: Use cases
         location: landscape-use-cases.md
 
-      - title: API
-        location: landscape-api.md
-
   - title: Landscape On&#8209;Premises
+    location: onprem.md
 
     children:
 
       - title: Quickstart Installation
-        location: landscape-install-quickstart.html
+        location: landscape-install-quickstart.md
 
       - title: Juju Installation
-        location: landscape-install-juju.html
+        location: landscape-install-juju.md
 
       - title: Manual Installation
-        location: landscape-install-manual.html
+        location: landscape-install-manual.md
+
+      - title: Repositories
+        location: repositories.md
+
+      - title: Backup and Restore
+        location: onprem-backup.md
+
+      - title: Logs
+        location: onprem-logs.md
+
+  - title: API
+    location: api.md
