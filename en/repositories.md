@@ -23,14 +23,16 @@ Some terminology:
 |Components         | an apt sources.list line               | main, extra, universe
 |Architecture       | A computer's CPU/hardware	             | i386, amd64, source (for source packages)
 
-!!! Note: The special pocket release never gets mentioned in a suite.
+!!! Note:
+    The special pocket release never gets mentioned in a suite.
 
 In a `sources.list` line, you would see:
 
 ```no-format
 deb http://archive.ubuntu.com/DISTRIBUTION/ SERIES-POCKET COMPONENT [COMPONENT ...]
-Repository management - getting started
 ```
+
+## Repository management - getting started
 
 You can mirror an upstream repository with the following script. For the sake
 of brevity, instead of mirroring the whole of, say, Precise, you can just
@@ -81,7 +83,7 @@ $ landscape-api sync-mirror-pocket release precise ubuntu
 
 
 # the result of the above command is an activity, and it has an id.
-# We can query its progress by using get-activities with the activity id, and inspect the "progress" result, 
+# We can query its progress by using get-activities with the activity id, and inspect the "progress" result,
 # which is a percentage:
 $ landscape-api get-activities --query id:101
 (...)
@@ -128,25 +130,25 @@ repository for Precise restricted component.
 
 The repositories are also visible via a web browser at
 http://<lds-server>/repository/standalone/ubuntu/pool/ and
-http://<lds-server>/repository/standalone/ubuntu/dists/.  Repository management
-mirroring tips
+http://<lds-server>/repository/standalone/ubuntu/dists/.
+
+### Repository management mirroring tips
 
 Here are some simple tips on how to create standard repositories using
-Landscape. They all use the create-pocket API call, so to use them, you must
+Landscape. They all use the `create-pocket` API call, so to use them, you must
 have created a distribution (for example ubuntu, using a command like
-create-distribution ubuntu) and a series (for instance precise, with a command
-like create-series precise ubuntu).
+`create-distribution ubuntu`) and a series (for instance precise, with a command
+like `create-series precise ubuntu`).
 
-For complete create-pocket syntax, run the command landscape-api create-pocket
--h.
+For complete create-pocket syntax, run the command `landscape-api create-pocket -h`.
 
 Suppose you want to mirror an upstream repository. Basic usage looks like this:
 
 ```bash
 landscape-api create-pocket [--mirror-suite MIRROR-SUITE] \
-[--mirror-uri MIRROR-URI] \ POCKETNAME \ SERIES \ DISTRIBUTION \ COMPONENT, ...
-\ ARCHITECTURE, ... \ MODE \ GPGKEY
-```    
+[--mirror-uri <MIRROR-URI>] <POCKETNAME> <SERIES> <DISTRIBUTION> \
+<COMPONENT> <ARCHITECTURE> <MODE> <GPGKEY>
+```
 
 In this command, landscape-api and create-pocket are constants; the rest are
 variables. The values in [brackets] are optional.
@@ -193,13 +195,13 @@ landscape-api create-pocket --mirror-suite precise-security \
 --mirror-uri http://archive.ubuntu.com/ubuntu/ \
 security precise ubuntu main,restricted,universe,multiverse \
 i386,amd64 mirror mirror-sign-key
-```    
+```
 
 The specific suffix is not significant. You could theoretically choose a
 different convention for pocket names, but we suggest you stick to this usage.
 
 Once you've created the pocket or pockets you want to use, call
-sync-mirror-pocket to start the mirroring process: 
+sync-mirror-pocket to start the mirroring process:
 
 ```bash
 landscape-api sync-mirror-pocket release precise ubuntu
@@ -214,13 +216,12 @@ distribution are created already, you would use a command like:
 
 ```bash
 landscape-api create-pocket staging precise ubuntu main i386 upload upload-sign-key
-```      
-    
+```
 
 where:
-- staging is the name of the upload pocket to be created,
-- precise is the series,
-- ubuntu is the distribution,
-- upload is the pocket type,
 
-and the rest of the parameters are the same as those for create-pocket.
+* **staging** is the name of the upload pocket to be created
+* **precise** is the series
+* **ubuntu** is the distribution
+* **upload** is the pocket type
+* and the rest of the parameters are the same as those for create-pocket.
