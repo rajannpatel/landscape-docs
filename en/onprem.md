@@ -1,4 +1,5 @@
-## Landscape On-Premises
+Title: Landscape On-Premises
+# Landscape On-Premises
 
 Landscape On-Premises, is the standalone version of Landscape that you can install on your own network.
 
@@ -11,35 +12,28 @@ Each major Landscape version is supported for a period of one year after release
 | [17.03](./ReleaseNotes17.03.md)  | 2017-Mar         | **2019-Mar**        | 16.04 LTS              |
 
 
-### Installing On-Prem
+## Installation
+Landscape On-Premises consists of two parts:
 
-Here is how you can get started:
+ * **database server**
+ * **application server**
 
+Depending on your deployment method, these may live on the same machine or different machines. Here is how you can get started:
+
+### Quickstart
  * **[Quickstart](./landscape-install-quickstart.md)**, for when you don't have Juju but quickly want to check out On-Prem. Not recommended for production environments when having more than 500 clients.
 
-``` 
-sudo add-apt-repository -u ppa:landscape/18.03
-sudo apt-get install landscape-server-quickstart
-```
+### Juju deployed
+ * **[Juju deployed](./landscape-install-juju.md)** for a truly scalable deployment.
 
- * **[Juju deployed](./landscape-install-juju.md)** for a truly scalable deployment. Select the bundle that best serves your environment:
-
-**landscape-dense-maas** if you have the MAAS provider, you can deploy all the services using containers:
-
-``` 
-juju deploy cs:bundle/landscape-dense-maas
-```
-
-**landscape-scalable** each service gets its own machine. Currently that means you will need 4 machines for Landscape, and one for the controller node:
-
-```
-juju deploy cs:bundle/landscape-scalable
-```
-
-Once the deployment has finished, grab the address of the first `haproxy` unit and access it with your browser:
-
-```
-juju status haproxy
-```
-
+### Manual installation
 * **[Manual installation](./landscape-install-manual.md)**: for when you don't have a suitable Juju environment but need a scalable deployment.
+
+## Installation requrirements
+
+### Network access
+The machine(s) running as the application server will need the following network access:
+
+ * http access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
+ * http access to the public Ubuntu archives and `changelogs.ubuntu.com`, in order to update the hash-id-database files and detect new distribution releases. Without this, the release upgrade feature won't work
+ * https access to `landscape.canonical.com` in order to query for available OPL releases. If this access is not given, the only drawback is that OPL won't display a note about the available releases in the account page.

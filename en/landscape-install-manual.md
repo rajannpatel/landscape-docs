@@ -5,14 +5,8 @@ Title: Landscape 19.01 Manual Installation
 
 This is the baseline deployment recommendation we have for the LDS product when Juju is not used. At a minimum, we have two machines:
 
- * a database server, running Ubuntu 18.04 LTS ("bionic"), with Postgresql 10.
- * an application server, running the same version of Ubuntu as the Database server, hosting the Landscape services
- 
-# Network access
-
- * the APP server needs http access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
- * the APP server also needs http access to the public Ubuntu archives and `changelogs.ubuntu.com`, in order to update the hash-id-database files and detect new distribution releases. Without this, the release upgrade feature won't work
- * the APP server also needs https access to `landscape.canonical.com` in order to query for available LDS releases. If this access is not given, the only drawback is that LDS won't display a note about the available releases in the account page.
+ * **database server**, running Ubuntu 18.04 LTS ("bionic"), with Postgresql 10.
+ * **application server**, running the same version of Ubuntu as the Database server, hosting the Landscape services
  
 This is a long document. Don't be intimidated. If you want a quick installation that just works, but doesn't scale to a large number of machines, then install the `landscape-server-quickstart` package.
 
