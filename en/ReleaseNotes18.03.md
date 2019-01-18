@@ -4,7 +4,7 @@ Title: Landscape Release Notes 18.03
 
 These are the release notes for Landscape 18.03.
 
-# Highlights
+## Highlights
 
 Landscape 18.03 is a mjor release with the following:
 
@@ -18,7 +18,7 @@ Landscape 18.03 is a mjor release with the following:
  * [#1739823](https://bugs.launchpad.net/bugs/1739823) display a computer's repository profiles on the info page. Although repository profiles are still managed from the API, they are now listed on the computer info pages on which they apply.
  * [#1754806](https://bugs.launchpad.net/bugs/1754806) Variable delay to USN refresh to avoid timeouts. Security database updates are now scheduled over a time window.
 
-# Upgrade notes
+## Upgrade notes
 
 Landscape 18.03 supports Ubuntu 18.04 LTS ("bionic") and Ubuntu 16.04 LTS ("xenial").
 
@@ -59,17 +59,17 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
  * if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then the required schema upgrade will be performed as part of the package upgrade and all services will be running at the end. The upgrade is finished.
  * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command: 
 ```
-    sudo setup-landscape-server
+sudo setup-landscape-server
 ```
   After all these steps are completed, the Landscape services can be started: 
 ```
-    sudo lsctl restart
+sudo lsctl restart
 ```
  * re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in all app servers
 
  * It is also recommended to disable TLSv1.0 as it is deprecated. Add the `-TLSv1` to the list of disabled protocols in the HTTPS vhost configuration like so:
 ```
-    SSLProtocol all -TLSv1 -SSLv3 -SSLv2
+SSLProtocol all -TLSv1 -SSLv3 -SSLv2
 ```
 
 ## Charm upgrade
@@ -183,7 +183,9 @@ sudo lsctl stop
 ```
 sudo apt install postgresql-10 postgresql-plpython-10 postgresql-contrib-10 postgresql-client-10 postgresql-10-debversion
 ```
-If you get a warning about `/etc/postgresql-common/createcluster.conf` while configuring `postgresql-common`, select to keep the local version.
+!!! Note:
+    If you get a warning about `/etc/postgresql-common/createcluster.conf` while configuring `postgresql-common`, select to keep the local version.
+
  * Drop the newly created 10 cluster:
 ```
 sudo pg_dropcluster 10 main --stop
@@ -215,6 +217,7 @@ LDS           | Ubuntu (LDS) | Postgresql | Ubuntu (Postgresql) |
  18.03        | Bionic       | `10 (8)`   | Bionic              |
 
 Upgrade the APP server first:
+
  * Upgrade Landscape 17.03 to 18.03 in the APP server, still on Ubuntu 16.04 LTS ("xenial"), following the steps outlined in the non-quickstart upgrade section.
  * Configure the release update manager to keep third-party repositories enabled by running this command:
 ```
@@ -224,11 +227,14 @@ echo -e "[Sources]\nAllowThirdParty=yes" | sudo tee /etc/update-manager/release-
 ```
 sudo do-release-upgrade
 ```
-If it tells you that no new releases are available, try adding the `-d` parameter:
+ * If it tells you that no new releases are available, try adding the `-d` parameter:
 ```
 sudo do-release-upgrade -d
 ```
-Pay close attention to its output: it should say that it is starting an upgrade to "bionic". Reboot after the upgrade is done.
+!!! Note:
+    Pay close attention to its output: it should say that it is starting an upgrade to "bionic".
+
+ * Reboot after the upgrade is done.
  * Verify that Landscape is still operating normally.
  * Stop all Landscape services:
 ```
@@ -236,12 +242,15 @@ sudo lsctl stop
 ```
 
 Now we will upgrade the database server:
+
  * While still on postgresql 9.5, upgrade the server from Ubuntu 16.04 LTS ("bionic") to Ubuntu 18.04 LTS ("bionic") using the `do-release-upgrade` tool just like before.
  * Install the 10 postgresql packages:
 ```
 sudo apt install postgresql-10 postgresql-plpython-10 postgresql-contrib-10 postgresql-client-10 postgresql-10-debversion
 ```
-If you get a warning about `/etc/postgresql-common/createcluster.conf` while configuring `postgresql-common`, select to keep the local version.
+!!! Note:
+    If you get a warning about `/etc/postgresql-common/createcluster.conf` while configuring `postgresql-common`, select to keep the local version.
+
  * Drop the newly created 10 cluster:
 ```
 sudo pg_dropcluster 10 main --stop
@@ -264,13 +273,13 @@ sudo pg_dropcluster 9.5 main
 Upgrading the Ubuntu release of servers within a juju deployment is not supported at this time.
 
 
-# Other changes of note
+## Other changes of note
 
 * Landscape will send back anonymous usage data to Canonical to help improve the product. You may opt-out of this behaviour globally in the settings page.
  
 * Copying package profiles no longer applies the copied profile to the same set of computers by default -- it applies to no computers instead.
 
-# Known issues
+## Known issues
 
 This section describes some relevant known issues that might affect your usage of Landscape 18.03.
 
@@ -278,10 +287,8 @@ This section describes some relevant known issues that might affect your usage o
 
 
 * When the landscape-server package is installed or upgraded, its postinst step runs a `chown landscape:landscape -R /var/lib/landscape` command. If you have the repository management files mounted via NFS in the default location `/var/lib/landscape/landscape-repository` and with the NFS `root_squash` option set, then this command will fail. There are two workarounds:
-
-temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
-
-mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps: 
+    * temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
+    * mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps: 
 
 ```
     sudo mkdir -m 0755 /landscape-repository 

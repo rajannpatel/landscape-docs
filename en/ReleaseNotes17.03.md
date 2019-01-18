@@ -1,7 +1,8 @@
+Title: Landscape Release Notes 17.03
 # Landscape Release 17.03
 These are the release notes for Landscape 17.03.
 
-# Highlights
+## Highlights
 
  * Autopilot
  * Nova-LXD
@@ -23,26 +24,25 @@ These are the release notes for Landscape 17.03.
  * Important new known issue that can affect how long the `landscape-server` takes to upgrade: please read the Known Issues section at the end of this document.
  * There are no special upgrade instructions for Landscape 17.03.2, regardless of the installation method.
 
-# Changes and new features
+## Changes and new features
 
 This section describes the changes and new features in more detail.
 
- 
-## Nova LXD (On-prem)
+### Nova LXD (On-prem)
 
 The OpenStack Autopilot now allows the deployment of [nova-lxd](https://github.com/openstack/nova-lxd), bringing system containers to OpenStack using nova-lxd. With this feature, it's possible to pick a percentage of cores to deploy with KVM and LXD hypervisors across your compute servers.  LXD needs different images from KVM, but most workloads will operate transparently on this hypervisor choice that allows significantly denser deployments than KVM.
 
-## OpenStack Ocata, 17.02 OpenStack Charms (On-prem)
+### OpenStack Ocata, 17.02 OpenStack Charms (On-prem)
 
 The Autopilot in Landscape 17.03 will deploy an [OpenStack Ocata](https://releases.openstack.org/ocata) cloud using the [17.02 OpenStack charms](http://docs.openstack.org/developer/charm-guide/1702.html).
 
-## MAAS 2.1 (On-prem)
+### MAAS 2.1 (On-prem)
 
 [MAAS](https://maas.io) support is now exclusive to version 2.1.3 and newer.  This is the default version of MAAS in Ubuntu 16.04.  MAAS is the way the OpenStack Autopilot provisions machines, and needs to be setup fully before using it with Landscape.
 
 When specifying MAAS nodes via the Landscape API to deploy a cloud, use only the first part of the name (i.e. 'my-node' instead of 'my-node.maas').
 
-## Juju 2.1 (On-prem)
+### Juju 2.1 (On-prem)
 
 [Juju](https://jujucharms.com) support is now exclusive to version 2.1 and newer.  Juju is installed automatically as a dependency of landscape, and should be transparent to you as an operator.  For more advanced debugging and maintenance of your cloud, some [commands have changed](https://jujucharms.com/docs/2.0/introducing-2).
 
@@ -55,7 +55,7 @@ landscape-api remove-juju-environment <environment_name>
 
 It's also recommended to destroy and re-deploy your cloud if you want to continue to use the management features of the OpenStack Autopilot.
 
-## Portable URLs - SAAS
+### Portable URLs - SAAS
 
 It is now possible to share Landscape URLs to other people without knowing their account name.
 
@@ -63,7 +63,7 @@ e.g. URLs like `https://landscape.acme.com/~/how-to-register` will translate to 
 
 This also makes it possible to have static documentation which is portable across many Landscape users.
 
-# Upgrade notes
+## Upgrade notes
 
 Landscape 17.03 supports Ubuntu 16.04 LTS ("xenial"). It can only be upgraded from Landscape 16.06 also running on the same Ubuntu 16.04 LTS release.
 
@@ -74,20 +74,24 @@ If you used the landscape-server-quickstart package to install Landscape 16.06 t
 
 If you are a [Landscape](https://landscape.canonical.com) customer, you can select new version of Landscape in your hosted account at [https://landscape.canonical.com](https://landscape.canonical.com) and then run:
 ```
-    sudo apt-get update
-    sudo apt-get dist-upgrade
+sudo apt-get update
+sudo apt-get dist-upgrade
 ```
 Alternatively, just add the Landscape 17.03 PPA and run the same commands as above:
 ```
-    sudo add-apt-repository -u ppa:landscape/17.03
-    sudo apt-get dist-upgrade
+sudo add-apt-repository -u ppa:landscape/17.03
+sudo apt-get dist-upgrade
 ```
-When prompted, reply with `N` to any dpkg questions about configuration files so the existing files stay untouched. The quickstart package will make any needed modifications to your configuration files automatically. 
+When prompted, reply with `N` to any dpkg questions about configuration files so the existing files stay untouched. The quickstart package will make any needed modifications to your configuration files automatically.
 
 ## Non-quickstart upgrade
 
 Follow these steps to perform a non-quickstart upgrade, that is, you did not use the landscape-server-quickstart package when installing Landscape 16.06:
- * stop all landscape services on all machines that make up your non-quickstart deployment, except the database service: `sudo lsctl stop`
+
+ * stop all landscape services on all machines that make up your non-quickstart deployment, except the database service:
+ ```
+ sudo lsctl stop
+ ```
  * double check that `UPGRADE_SCHEMA` is set to what you want in `/etc/default/landscape-server`
  * disable all the landscape-server cron jobs from `/etc/cron.d/landscape-server` in all app servers
  * Update the Landscape apache vhost as follows:
@@ -124,7 +128,7 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
   * Remove the `[L]` flag from the first `RewriteRule` in the HTTP vhost like shown in this diff:
 ```
 -    RewriteRule ^/r/([^/]+)/(.*) /$2 [L]
-+    RewriteRule ^/r/([^/]+)/(.*) /$2 
++    RewriteRule ^/r/([^/]+)/(.*) /$2
 ```
   * Update the existing `RewriteCond` regular expressions in the HTTPS vhost like shown in this diff:
 ```
@@ -140,18 +144,27 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
 -    RewriteCond %{REQUEST_URI} !/hash-id-databases
 +    RewriteCond %{REQUEST_URI} !^/hash-id-databases/
 ```
- * Restart apache using `sudo service apache2 restart`
- * add the Landscape 17.03 PPA: `sudo add-apt-repository -u ppa:landscape/17.03`
- * update and upgrade: `sudo apt-get update && apt-get dist-upgrade`
+ * Restart apache using
+```
+sudo service apache2 restart
+```
+ * add the Landscape 17.03 PPA:
+```
+sudo add-apt-repository -u ppa:landscape/17.03
+```
+ * update and upgrade:
+```
+sudo apt-get update && apt-get dist-upgrade
+```
  * answer with `N` to any dpkg questions about Landscape configuration files
  * if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then the required schema upgrade will be performed as part of the package upgrade and all services will be running at the end. The upgrade is finished.
- * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command: 
+ * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command:
 ```
-    sudo setup-landscape-server
+sudo setup-landscape-server
 ```
-  After all these steps are completed, the Landscape services can be started: 
+  After all these steps are completed, the Landscape services can be started:
 ```
-    sudo lsctl restart
+sudo lsctl restart
 ```
  * re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in all app servers
 
@@ -206,8 +219,8 @@ timing:
   completed: 2016-06-23 19:24:39 +0000 UTC
   enqueued: 2016-06-23 19:24:32 +0000 UTC
   started: 2016-06-23 19:24:33 +0000 UTC
-  
-# Juju 2.x: 
+
+# Juju 2.x:
 $ juju run-action landscape-server/0 pause
 Action queued with id: 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
 $ juju show-action-output --wait 0 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
@@ -236,51 +249,49 @@ timing:
 ```
 
 
-# Other changes of note
+## Other changes of note
 
  * Landscape will send back anonymous usage data to Canonical to help
  improve the product. You may opt-out of this behaviour globally in the
  settings page.
- 
  * Copying package profiles no longer applies the copied profile to the
  same set of computers by default -- it applies to no computers instead.
-
  * The minimum recommended machine specs for an OpenStack node is:
-   * 64G of Ram
-   * 4 cores
-   * no less than 8G of memory per core
-   * 100G of root disk storage
-   * 100G of secondary disk storage
-   * 10 physical systems is enough for a staging/demonstration cloud.  For production clouds, you will need to [purchase more seats](https://buy.ubuntu.com). Canonical recommends a starting cloud size of 15 physical systems.
+    * 64G of Ram
+    * 4 cores
+    * no less than 8G of memory per core
+    * 100G of root disk storage
+    * 100G of secondary disk storage
+    * 10 physical systems is enough for a staging/demonstration cloud.  For production clouds, you will need to [purchase more seats](https://buy.ubuntu.com). Canonical recommends a starting cloud size of 15 physical systems.
 
-# Known issues
+## Known issues
 
 This section describes some relevant known issues that might affect your usage of Landscape 17.03.
 
  * When launching new instances using Horizon's UI, un-check the "create a new volume" during instance creation to avoid a timeout error reported in the UI. [Bug #1644923](https://bugs.launchpad.net/bugs/).
  * Deployed clouds will get nagios alerts on conntrack checks not working. [Bug #1673064](https://bugs.launchpad.net/bugs/1673064).
  * Deployed clouds will get nagios alerts on metering.sample rabbit queue size. [Bug #1676586](https://bugs.launchpad.net/bugs/1676586).
- * There are known memory leaks in juju 2.1.2 (used to deploy the cloud) and it may eventually fail to gracefully recover.  "Add Hardware" and other OpenStack administration tasks may fail.  Standard recovery options (restarting juju daemons) should be used in the event this happens. 
+ * There are known memory leaks in juju 2.1.2 (used to deploy the cloud) and it may eventually fail to gracefully recover.  "Add Hardware" and other OpenStack administration tasks may fail.  Standard recovery options (restarting juju daemons) should be used in the event this happens.
  * Juju 2.1.2 can sometimes take a while to release nodes gracefully.  Currently landscape gives a 2 minute timeout for this graceful termination before the nodes are directly released in MAAS.
  * The `landscape-package-search` service ignores the `RUN_*` variable settings in `/etc/default/landscape-server` and will always try to start. To configure it not to start, run this command: `sudo systemctl disable landscape-package-search`. If it was already running, you will also have to stop it: `sudo service landscape-package-search stop`. This is only noticeable using multiple application servers [Bug #1675569](https://bugs.launchpad.net/landscape/+bug/1675569).
  * To upgrade to 17.03 from 16.06, you must first `do-release-upgrade` to xenial.
  * Juju does not support Ubuntu release upgrades currently. To upgrade from 16.06 to 17.03 there you must tear down and redeploy, migrating data where necessary/desired.
  * When the landscape-server package is installed or upgraded, its postinst step runs a `chown landscape:landscape -R /var/lib/landscape` command. If you have the repository management files mounted via NFS in the default location `/var/lib/landscape/landscape-repository` and with the NFS `root_squash` option set, then this command will fail. There are two workarounds:
-   * temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
-   * mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps:
+    * temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
+    * mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps:
 ```
-    sudo mkdir -m 0755 /landscape-repository 
-    sudo chown landscape:landscape /landscape-repository 
-    sudo vi /etc/landscape/service.conf <-- change repository-path to /landscape-repository 
-    sudo vi /etc/apache2/sites-enabled/<yourvhost> <-- change "Alias /repository /var/lib/landscape/landscape-repository" to "Alias /repository /landscape-repository" 
-    sudo lsctl stop 
-    sudo service apache2 stop 
-    sudo umount /var/lib/landscape/landscape-repository # may have to kill gpg-agent processes to be allowed to umount 
-    sudo mount <nfserver>:<export> -t nfs -o rw /landscape-repository 
-    # check that /landscape-repository and files/directories under it are still owned by landscape:landscape 
-    sudo service apache2 start 
-    sudo lsctl start 
-    # update /etc/fstab regarding the new mount point, to avoid surprises after a reboot 
+    sudo mkdir -m 0755 /landscape-repository
+    sudo chown landscape:landscape /landscape-repository
+    sudo vi /etc/landscape/service.conf <-- change repository-path to /landscape-repository
+    sudo vi /etc/apache2/sites-enabled/<yourvhost> <-- change "Alias /repository /var/lib/landscape/landscape-repository" to "Alias /repository /landscape-repository"
+    sudo lsctl stop
+    sudo service apache2 stop
+    sudo umount /var/lib/landscape/landscape-repository # may have to kill gpg-agent processes to be allowed to umount
+    sudo mount <nfserver>:<export> -t nfs -o rw /landscape-repository
+    # check that /landscape-repository and files/directories under it are still owned by landscape:landscape
+    sudo service apache2 start
+    sudo lsctl start
+    # update /etc/fstab regarding the new mount point, to avoid surprises after a reboot
 ```
  * Also due to the `chown` command run during postinst explained above, the upgrade can take a long time if the repository files are mounted somewhere `/var/lib/landscape`, depending on the size of the repository. On an experiment with two machines on the same gigabit switch and a 150Gb repository mounted via NFS, a test upgrade spent about 30min just in that `chown` command. While that happens, the service is down. This is being tracked as [bug #1725282](https://bugs.launchpad.net/landscape/+bug/1725282) and until a fix is explicitly mentioned in the release notes, we suggest the same workaround as for the previous case: mount the repository outside of the `/var/lib/landscape/` tree.
 
