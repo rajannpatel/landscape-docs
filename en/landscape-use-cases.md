@@ -5,96 +5,126 @@ Title: Use cases
 You can use Landscape to perform many common system administration tasks
 easily and automatically. Here are a few examples...
 
+## How do I group some machines together to perform a task across the group?
+
+You can use [tags] to manage a group of computers. To add a tag to a group of
+computers:
+
+1. Click on the 'Computers' tab.
+1. Select the computers you want to tag.
+1. Click 'Info'.
+1. In the 'Tags' section enter the tag you want to use.
+1. Click the 'Add' button.
+
 ## How do I upgrade all packages on a certain group of machines?
 
-First, tag the machines you want to upgrade with a common tag, so you can use
-the tag anytime you need to manage those computers as a group. If, for
-instance, you want to upgrade all your desktop computers, you might want to
-use "desktop" as a tag. Select your computers, then click on `COMPUTERS` on the
-top menu, and under that `INFO`. In the box under `Tags:`, enter the tag you want
-to use and click the `Add` button.
+Using tags, you can perform an upgrade across a group of machines. If, for
+instance, you want to upgrade all your desktop computers, you might want to use
+"desktop" as a tag.
 
-If you've already tagged the computers, click on `COMPUTERS`, then click on the
-tag in the left column.
+Starting the upgrade:
 
-With your desktop computers selected, click on `COMPUTERS`, then `PACKAGES`.
-Scroll to the bottom of the screen, where you'll see a `Request upgrades`
-button. Click it to queue the upgrade tasks.
+1. Click on the 'Computers' tab.
+1. Click the desired tag from the left column. This will select only the
+computers associated with the tag selected.
+1. Click 'Packages'.
+1. Scroll to the bottom of the page and click 'Request upgrades'. This will
+create a queued 'Activity' for upgrading the computers.
 
-![](../media/usecases1.png)
+![Activities - Upgrade pending approval][img_pending_approval]
 
-While the upgrade tasks are now in the queue, they will not be executed until
-you approve them. To do so, next to `Select:`, click `All`, then click on the
-`Approve` button at the bottom of the page.
+!!! Note:
+    While the upgrade tasks are now in the queue, they will not be executed
+    until you approve them. To approve the tasks, click select 'All' and click
+    the 'Approve' button at the bottom of the page.
 
-### How do I keep all of my file servers automatically up to date?
+## How do I keep a set of machines automatically up to date?
 
-The best way is to use [upgrade
-profiles], which rely on access groups.
+The best way is to use [upgrade profiles], which rely on access groups. If an
+access group is already setup for the group of machines you want to keep
+updated automatically, simply click on its name. If not, you must create an
+access group for them:
 
-If an access group for your file servers already exists, simply click on its
-name. If not, you must create an access group for them. To do so, click on
-your account, then on `ACCESS GROUPS`. Specify a name for your new access group
-and click the `Save` button. You must then add computers to the access group. To
-do that, click on `COMPUTERS`, then select all your file servers by using a tag,
-if one exists, or a search, or by ticking them individually. Once all the
-computers you want to add to the access group are tagged, click on the `INFO`
-menu choice, scroll down to the bottom section, choose the access group you
-want from the drop-down list, then click the `Update` access group button.
+1. Click on your account name, then 'Access groups'.
+1. Specify a title for your new access group and click 'Save'.
 
-![](../media/accessgroups4.png)
+You must then add computers to the access group:
 
-Once you have all your file servers in an access group you can create an
-upgrade profile for them. Click on your account, then `PROFILES` menu following
-the  `Upgrade profiles` link, and then on the `Add upgrade profile` link. Enter a
-name for the new upgrade profile, choose the access group you wish to
-associate with it, and specify the schedule on which the upgrades should run,
-then click the `Save` button.
+1. Click on the 'Computers' tab.
+1. Select all of the machines you want to keep updated by:
+    * using a tag if one exists
+    * using search to find the machines
+    * selecting them individually
+1. Click on the 'Info' tab.
+1. In the 'Access group' section, select the access group you want to move the
+machines to.
+1. Click 'Update access group'.
 
-### How do I keep Landscape from upgrading a certain package on one of my
-servers?
+![Update access group][img_update_access_group]
 
-First find the package by clicking on `COMPUTERS`, then `PACKAGES`. Use the search
-box at the top of the screen to find the package you want. Click the triangle
-on the left of the listing line of the package you want to hold, which expands
-the information for that package. Now click on the icon to the left of the
-package name. A new icon with a lock replaces the old one, indicating that
-this package is to be held during upgrades. Scroll to the bottom of the page
-and click on the `Apply Changes` button.
+Now that you have added machines to an access group, you will need to create
+an upgrade profile:
 
-![](../media/usecases2.png)
+1. Click on your account name, then 'Profiles'.
+1. Click the 'Upgrade Profiles' link, then 'Add upgrade profile'.
+1. Complete the 'Create an upgrade profile' form, defining:
+    * name
+    * the upgrade settings you want to use
+    * an access group
+    * the schedule you want to use
+1. Click 'Save'
 
-### How do I set up a custom graph?
+## How do I keep Landscape from upgrading a certain package on one of my servers?
 
-First select the computers whose information you want to see. One good way to
-do so is to create a tag for that group of computers on my computers. Suppose
-you want to monitor the size of the PostgreSQL database on your database
-servers. Select the servers, then click on `COMPUTERS` on the top menu, and `INFO`
-under that. In the box under `Tags:`, enter a tag name, such as "db-server," and
-click the `Add` button. Next, under your account, click on `CUSTOM GRAPHS`, then
-on the link to `Add custom graph`. Enter a title, and in the `#!` field, enter
-**/bin/sh** to indicate a shell script. In the `Code` section, enter the
-commands necessary to create the data for the graph. For this example, the
-command might be:
+1. Click on the 'Computers' tab, then 'Packages'.
+1. Use the search box at the top of the screen to find the package you want.
+1. Click the triangle on the left of the listing line of the package you want
+to hold, which expands the information for that package.
+1. Now click on the icon to the left of the package name. A new icon with a
+lock will replace the old icon, indicating that this package is to be held
+during upgrades.
+1. Click 'Apply Changes'.
+
+![Locked packages][img_locked_packages]
+
+## How do I set up a custom graph?
+
+Suppose you want to monitor the size of the PostgreSQL database on your
+database servers, you may use tags to group these machines together. Now you
+can setup a graph to provide information from all of these servers:
+
+1. Click on your account name, then 'Graphs'.
+1. Click the 'Add graph' link.
+1. Complete the 'Create graph' form. In our example we would do something like:
+    * Title: **PostgreSQL database size**
+    * Provide a 'Y-axis title' and define the machines you want the graph created for.
+    * Run as user: **postgres**
+    * Code:
 
 ```no-highlight
+#!/bin/bash
 psql -tAc "select pg_database_size('postgres')"
 ```
 
-For Run as user, enter **postgres**.
+Click 'Save'
 
-Fill in the `Y-axis` title, then click the `Save` button at the bottom of the
-page.
+![Create custom graph][img_create_custom_graph]
 
-![](../media/usecases3.png)
-
-To view the graph, click on `COMPUTERS`, then `MONITORING`. You can select the
+To view the graph, click on 'Computers', then 'Monitoring'. You can select the
 monitoring period from the drop-down box at the top of the window.
 
-### How do I ensure all computers with a given tag have a common list of packages installed?
+## How do I ensure all computers with a given tag have a common list of packages installed?
 
 Manage them via a [package profile].
 
-  
+<!-- IMAGES -->
+[img_pending_approval]: ../media/usecases1.png
+[img_update_access_group]: ../media/accessgroups4.png
+[img_locked_packages]: ../media/usecases2.png
+[img_create_custom_graph]: ../media/usecases3.png
+
+<!-- LINKS -->
+
+[tags]: ./concepts.html#tags
 [upgrade profiles]: ./concepts.md#upgrade-profiles
 [package profile]: ./landscape-managing-packages.md#adding-a-package-profile
