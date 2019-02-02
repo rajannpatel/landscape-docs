@@ -3,9 +3,9 @@ Title: Use cases
 # Use cases
 
 You can use Landscape to perform many common system administration tasks
-easily and automatically. Here are a few examples...
+easily and automatically. Here are a few examples how to's...
 
-## How do I group some machines together to perform a task across the group?
+## Group machines together to perform a task across the group
 
 You can use [tags] to manage a group of computers. To add a tag to a group of
 computers:
@@ -16,7 +16,7 @@ computers:
 1. In the 'Tags' section enter the tag you want to use.
 1. Click the 'Add' button.
 
-## How do I upgrade all packages on a certain group of machines?
+## Upgrade all packages on a certain group of machines
 
 Using tags, you can perform an upgrade across a group of machines. If, for
 instance, you want to upgrade all your desktop computers, you might want to use
@@ -38,7 +38,7 @@ create a queued 'Activity' for upgrading the computers.
     until you approve them. To approve the tasks, click select 'All' and click
     the 'Approve' button at the bottom of the page.
 
-## How do I keep a set of machines automatically up to date?
+## Keep a set of machines automatically up to date
 
 The best way is to use [upgrade profiles], which rely on access groups. If an
 access group is already setup for the group of machines you want to keep
@@ -74,7 +74,7 @@ an upgrade profile:
     * the schedule you want to use
 1. Click 'Save'
 
-## How do I keep Landscape from upgrading a certain package on one of my servers?
+## Keep Landscape from upgrading a certain package on one of my servers
 
 1. Click on the 'Computers' tab, then 'Packages'.
 1. Use the search box at the top of the screen to find the package you want.
@@ -87,7 +87,7 @@ during upgrades.
 
 ![Locked packages][img_locked_packages]
 
-## How do I set up a custom graph?
+## Set up a custom graph
 
 Suppose you want to monitor the size of the PostgreSQL database on your
 database servers, you may use tags to group these machines together. Now you
@@ -113,7 +113,7 @@ Click 'Save'
 To view the graph, click on 'Computers', then 'Monitoring'. You can select the
 monitoring period from the drop-down box at the top of the window.
 
-## How do I ensure all computers with a given tag have a common list of packages installed?
+## Ensure all computers with a given tag have a common list of packages installed
 
 Manage them via a [package profile].
 
