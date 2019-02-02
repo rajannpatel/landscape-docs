@@ -125,6 +125,6 @@ Manage them via a [package profile].
 
 <!-- LINKS -->
 
-[tags]: ./concepts.html#tags
+[tags]: ./concepts.md#tags
 [upgrade profiles]: ./concepts.md#upgrade-profiles
 [package profile]: ./landscape-managing-packages.md#adding-a-package-profile
