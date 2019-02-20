@@ -28,7 +28,7 @@ It can only be upgraded from Landscape 17.03 running on Ubuntu 16.04 LTS ("xenia
 
 If you used the landscape-server-quickstart package to install Landscape 17.03 then you can use this method to upgrade it.
 
-If you are a <https://landscape.canonical.com> customer, you can select new version of Landscape in your hosted account at <https://landscape.canonical.com> and then run:  
+If you are a <https://landscape.canonical.com> customer, you can select new version of Landscape in your hosted account at <https://landscape.canonical.com> and then run:
 
 ```
 sudo apt-get update
@@ -36,7 +36,7 @@ sudo apt-get dist-upgrade
 ```
 
 Alternatively, just add
-the Landscape 18.03 PPA and run the same commands as above:  
+the Landscape 18.03 PPA and run the same commands as above:
 
 ```
 sudo add-apt-repository -u ppa:landscape/18.03
@@ -57,11 +57,11 @@ Follow these steps to perform a non-quickstart upgrade, that is, you did not use
  * update and upgrade: `sudo apt-get update && sudo apt-get dist-upgrade`
  * answer with `N` to any dpkg questions about Landscape configuration files
  * if you have `UPGRADE_SCHEMA` enabled in `/etc/default/landscape-server`, then the required schema upgrade will be performed as part of the package upgrade and all services will be running at the end. The upgrade is finished.
- * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command: 
+ * if `UPGRADE_SCHEMA` is disabled, then you will have failures when the services are restarted at the end of the upgrade. That's expected. You now have to perform the schema upgrade manually with this command:
 ```
 sudo setup-landscape-server
 ```
-  After all these steps are completed, the Landscape services can be started: 
+  After all these steps are completed, the Landscape services can be started:
 ```
 sudo lsctl restart
 ```
@@ -122,8 +122,8 @@ timing:
   completed: 2018-06-23 19:24:39 +0000 UTC
   enqueued: 2018-06-23 19:24:32 +0000 UTC
   started: 2018-06-23 19:24:33 +0000 UTC
-  
-# Juju 2.x: 
+
+# Juju 2.x:
 $ juju run-action landscape-server/0 pause
 Action queued with id: 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
 $ juju show-action-output --wait 0 72fd7975-3e0b-4b6d-84b9-dbd76d50f6af
@@ -175,6 +175,7 @@ If it tells you that no new releases are available, try adding the `-d` paramete
 sudo do-release-upgrade -d
 ```
 Pay close attention to its output: it should say that it is starting an upgrade to "bionic". Reboot after the upgrade is done.
+
  * Stop all Landscape services:
 ```
 sudo lsctl stop
@@ -281,7 +282,7 @@ Upgrading the Ubuntu release of servers within a juju deployment is not supporte
 ## Other changes of note
 
 * Landscape will send back anonymous usage data to Canonical to help improve the product. You may opt-out of this behaviour globally in the settings page.
- 
+
 * Copying package profiles no longer applies the copied profile to the same set of computers by default -- it applies to no computers instead.
 
 ## Known issues
@@ -293,22 +294,21 @@ This section describes some relevant known issues that might affect your usage o
 
 * When the landscape-server package is installed or upgraded, its postinst step runs a `chown landscape:landscape -R /var/lib/landscape` command. If you have the repository management files mounted via NFS in the default location `/var/lib/landscape/landscape-repository` and with the NFS `root_squash` option set, then this command will fail. There are two workarounds:
     * temporarily enable the `no_root_squash` option on the NFS server, which will allow the command to complete
-    * mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps: 
+    * mount the repository elsewhere, outside of the `/var/lib/landscape` tree. For example, to mount it under `/landscape-repository`, follow these steps:
 
 ```
-    sudo mkdir -m 0755 /landscape-repository 
-    sudo chown landscape:landscape /landscape-repository 
-    sudo vi /etc/landscape/service.conf <-- change repository-path to /landscape-repository 
-    sudo vi /etc/apache2/sites-enabled/<yourvhost> <-- change "Alias /repository /var/lib/landscape/landscape-repository" to "Alias /repository /landscape-repository" 
-    sudo lsctl stop 
-    sudo service apache2 stop 
-    sudo umount /var/lib/landscape/landscape-repository # may have to kill gpg-agent processes to be allowed to umount 
-    sudo mount <nfserver>:<export> -t nfs -o rw /landscape-repository 
-    # check that /landscape-repository and files/directories under it are still owned by landscape:landscape 
-    sudo service apache2 start 
-    sudo lsctl start 
-    # update /etc/fstab regarding the new mount point, to avoid surprises after a reboot 
+    sudo mkdir -m 0755 /landscape-repository
+    sudo chown landscape:landscape /landscape-repository
+    sudo vi /etc/landscape/service.conf <-- change repository-path to /landscape-repository
+    sudo vi /etc/apache2/sites-enabled/<yourvhost> <-- change "Alias /repository /var/lib/landscape/landscape-repository" to "Alias /repository /landscape-repository"
+    sudo lsctl stop
+    sudo service apache2 stop
+    sudo umount /var/lib/landscape/landscape-repository # may have to kill gpg-agent processes to be allowed to umount
+    sudo mount <nfserver>:<export> -t nfs -o rw /landscape-repository
+    # check that /landscape-repository and files/directories under it are still owned by landscape:landscape
+    sudo service apache2 start
+    sudo lsctl start
+    # update /etc/fstab regarding the new mount point, to avoid surprises after a reboot
 ```
 
  * Also due to the `chown` command run during postinst explained above, the upgrade can take a long time if the repository files are mounted somewhere `/var/lib/landscape`, depending on the size of the repository. On an experiment with two machines on the same gigabit switch and a 150Gb repository mounted via NFS, a test upgrade spent about 30min just in that `chown` command. While that happens, the service is down. This is being tracked as [bug](https://bugs.launchpad.net/landscape/+bug/1725282) and until a fix is explicitly mentioned in the release notes, we suggest the same workaround as for the previous case: mount the repository outside of the `/var/lib/landscape/` tree.
-
