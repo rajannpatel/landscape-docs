@@ -1,4 +1,4 @@
-Title: Log files
+Title: External Authentication
 
 # Authentication
 
@@ -6,7 +6,7 @@ Landscape On-Premises supports a few methods of authentication for its web inter
 
 ## PAM Support
 
-If you want to use Pluggable Authentication Modules (PAM) to authenticate users in your new Landscape server you must create the file /etc/pam.d/landscape with the appropriate PAM configuration.
+If you want to use Pluggable Authentication Modules (PAM) to authenticate users in your new Landscape server you must create the file `/etc/pam.d/landscape` with the appropriate PAM configuration.
 
 The simplest possible file is:
 
@@ -57,7 +57,7 @@ ubuntu@ubuntu:~$ sudo -u postgres psql landscape-standalone-main
 psql (8.4.11)
 Type "help" for help.
 
-landscape-standalone-main=# 
+landscape-standalone-main=#
 ```
 
 We now need to update the identity column of John's entry in the person table with his OpenID URL. Given John's email and his OpenID URL, the following SQL will do it:
@@ -65,7 +65,7 @@ We now need to update the identity column of John's entry in the person table wi
 ```
 UPDATE person SET identity = 'https://login.ubuntu.com/+id/FooBar' WHERE identity IS NULL AND email = 'john@example.com';
 UPDATE 1
-landscape-standalone-main=# 
+landscape-standalone-main=#
 ```
 
 This needs to be done for all users.
@@ -83,7 +83,7 @@ oidc-client-id = 000000000000-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.apps.googleuserco
 oidc-client-secret = a4sDFAsdfA4F52as-asDfAsd
 ```
 
-The issuer is the URL of the issuer. That URL should also have a discovery configuration file available by appending `.well-known/openid-configuration`, such as [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration). The client-id and client-secret should be provided by the OpenID-Connect provider when you create a client credentials. The provider may require setting an authorization redirect URI. This should look like `https://your_landscape/login/handle-openid`. If your provider also requires a logout redirect URL, this should be the address of your landscape server such as `https://your_landscape/` .
+The `oidc-issuer` is the URL of the issuer. That URL should also be a discovery configuration file available by appending `.well-known/openid-configuration`, such as [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration). The `oidc-client-id` and `oidc-client-secret` should be provided by the OpenID-Connect provider when you create the client credentials. The provider may require setting an authorization redirect URI. This should look like `https://your_landscape/login/handle-openid`. If your provider also requires a logout redirect URL, this should be the address of your Landscape server such as `https://your_landscape/`.
 
 After making these changes, restart all Landscape services:
 
