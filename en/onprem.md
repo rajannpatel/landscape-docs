@@ -7,7 +7,7 @@ Each major Landscape version is supported for a period of one year after release
 
 | **major version**                | **Release date** | **Supported until** | **Version of Ubuntu**  |
 | ----------------------           | ---------------- | ------------------- | ---------------------  |
-| [19.10](./ReleaseNotes19.10.md)  | 2019-Oct         | **2020-Oct**        | 18.04 LTS              |
+| [19.10](./ReleaseNotes19.10.md)  | 2019-Oct         | **2021-Oct**        | 18.04 LTS              |
 
 ## Installation
 Landscape On-Premises consists of two parts:
