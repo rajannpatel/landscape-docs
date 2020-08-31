@@ -27,6 +27,11 @@ Landscape 19.10.2 contains the following fixes:
  * [#1877202](https://bugs.launchpad.net/landscape/+bug/1877202) OIDC login loop when missing end_session_endpoint
  * [#1877424](https://bugs.launchpad.net/landscape/+bug/1877424) Landscape doesn't support focal hash-ids
 
+Landscape 19.10.3 contains the following fixes:
+
+ * [#1523950](https://bugs.launchpad.net/landscape/+bug/1523950) Cron jobs don't get proxy setting from landscape
+ * [#1718746](https://bugs.launchpad.net/landscape/+bug/1718746) Landscape API doesn't support GPG subkeys
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
