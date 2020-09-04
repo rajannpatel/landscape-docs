@@ -133,7 +133,7 @@ Manage them via a [package profile].
 
 If want to manage landcape-client through a configuration management tool such
 as puppet, ansible, etc. you can avoid getting duplicate computers by writing
-the ```/etc/landscape/client.conf``` and ```/etc/default/landscape-config```
+the ```/etc/landscape/client.conf``` and ```/etc/default/landscape-client```
 files, and then restarting the landscape-client service.
 
 /etc/landscape/client.conf
@@ -149,7 +149,7 @@ account_name = myaccount
 include_manager_plugins = ScriptExecution
 ```
 
-/etc/default/landscape
+/etc/default/landscape-client
 ```no-highlight
 RUN=1
 ```
