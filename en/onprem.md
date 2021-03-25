@@ -3,11 +3,18 @@ Title: Landscape On-Premises
 
 Landscape On-Premises, is the standalone version of Landscape that you can install on your own network.
 
-Each major Landscape version is supported for a period of one year after release. Here are the current supported releases:
+Each major Landscape version is supported for a period of one year after release. Here are the currently supported releases:
 
 | **major version**                | **Release date** | **Supported until** | **Version of Ubuntu**  |
 | ----------------------           | ---------------- | ------------------- | ---------------------  |
 | [19.10](./ReleaseNotes19.10.md)  | 2019-Oct         | **2021-Oct**        | 18.04 LTS              |
+
+!!! Note:
+    Work is being done to allow Landscape On-Premises to run on Ubuntu 20.04. However, there is currently no ETA for that support. Once Ubuntu 20.04 is supported, Landscape On-Premises will still continue to be supported on Ubuntu 18.04 until there has been sufficient time for customers to migrate their environment.
+
+!!! Note:
+    The Landscape client is available for all [supported Ubuntu releases](https://ubuntu.com/about/release-cycle), independently of the Landscape On-Premises releases.
+
 
 ## Installation
 Landscape On-Premises consists of two parts:
