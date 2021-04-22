@@ -221,8 +221,8 @@ If you are using a custom certificate authority for your SSL certificate, then y
     # It is not recommended that you use an IP address here...
     ServerName @hostname@
     ServerAdmin webmaster@@hostname@
-    ErrorLog /var/log/apache2/landscape.error-log
-    CustomLog /var/log/apache2/landscape.access-log combined
+    ErrorLog /var/log/apache2/landscape_error.log
+    CustomLog /var/log/apache2/landscape_access.log combined
     DocumentRoot /opt/canonical/landscape/canonical/landscape
 
     # Set a Via header in outbound requests to the proxy, so proxied apps can
@@ -302,8 +302,8 @@ If you are using a custom certificate authority for your SSL certificate, then y
     ServerName @hostname@
     ServerAdmin webmaster@@hostname@
 
-    ErrorLog /var/log/apache2/landscape.error-log
-    CustomLog /var/log/apache2/landscape.access-log combined
+    ErrorLog /var/log/apache2/landscape_error.log
+    CustomLog /var/log/apache2/landscape_access.log combined
 
     DocumentRoot /opt/canonical/landscape/canonical/landscape
 
