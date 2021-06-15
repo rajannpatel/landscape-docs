@@ -38,7 +38,7 @@ Depending on your deployment method, these may live on the same machine or diffe
 ### Network access
 The machine(s) running as the application server will need the following network access:
 
- * http access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
+ * https access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
  * http access to the public Ubuntu archives and `changelogs.ubuntu.com`, in order to update the hash-id-database files and detect new distribution releases. Without this, the release upgrade feature won't work
  * https access to `landscape.canonical.com` in order to query for available OPL releases. If this access is not given, the only drawback is that OPL won't display a note about the available releases in the account page.
 
