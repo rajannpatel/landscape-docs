@@ -38,6 +38,14 @@ Landscape 19.10.4 contains the following fixes:
  * [#1898219](https://bugs.launchpad.net/landscape/+bug/1898219) Server fails to receive binary script output
  * [#1896276](https://bugs.launchpad.net/landscape/+bug/1896276) Low admin limit of juju-bootstrapped deployment
 
+Landscape 19.10.5 contains the following fixes:
+
+ * [#1929037](https://bugs.launchpad.net/bugs/1929037) Block mod-status by default on quickstart.
+ * [#1907737](https://bugs.launchpad.net/bugs/1907737) HTTP header injection fix.
+ * [#1929034](https://bugs.launchpad.net/bugs/1929034) Replace insecure tokens generator.
+ * [#1929620](https://bugs.launchpad.net/bugs/1929620) Open redirection vulnerability.
+ * [#1906329](https://bugs.launchpad.net/bugs/1906329) NVMe hardware storage listing.
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
