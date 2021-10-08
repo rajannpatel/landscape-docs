@@ -83,7 +83,7 @@ easily for our documentation.
 9. Create a pull request. This is easily done in the web interface of Github:
    navigate to your branch on the web interface and hit the compare button - 
    this will allow you to compare across forks to the CanonicalLtd/docs-landscape
-   master branch, which is where your changes will hopefully end up. The
+   main branch, which is where your changes will hopefully end up. The
    comparison will show you a diff of the changes  - it is useful to look over
    this to avoid mistakes. Then click on the button to Create a pull request.  Add
    any useful info about the changes in the comments (e.g. if it fixes an issue
@@ -121,10 +121,10 @@ You should now have both the upstream branch and your fork listed in git,
 
 To fetch and merge with the upstream branch:
 
-        git checkout master
+        git checkout main
         git fetch upstream
-        git merge --ff-only upstream/master
-        git push origin master
+        git merge --ff-only upstream/main
+        git push origin main
 
 
 
