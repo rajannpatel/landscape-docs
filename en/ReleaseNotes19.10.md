@@ -46,6 +46,10 @@ Landscape 19.10.5 contains the following fixes:
  * [#1929620](https://bugs.launchpad.net/bugs/1929620) Open redirection vulnerability.
  * [#1906329](https://bugs.launchpad.net/bugs/1906329) NVMe hardware storage listing.
 
+Landscape 19.10.6 contains the following fix:
+ * [#1915949](https://bugs.launchpad.net/bugs/1915949) Pam authentication does not handle non-ascii characters.
+
+
 ## Upgrade notes
 
 Landscape 19.10 supports Ubuntu 18.04 LTS ("bionic"). It can only be upgraded from Landscape 19.01 also running on the same Ubuntu 18.04 LTS release.
