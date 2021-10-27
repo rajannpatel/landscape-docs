@@ -47,6 +47,7 @@ Landscape 19.10.5 contains the following fixes:
  * [#1906329](https://bugs.launchpad.net/bugs/1906329) NVMe hardware storage listing.
 
 Landscape 19.10.6 contains the following fix:
+
  * [#1915949](https://bugs.launchpad.net/bugs/1915949) Pam authentication does not handle non-ascii characters.
 
 
