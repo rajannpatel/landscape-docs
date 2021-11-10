@@ -20,23 +20,23 @@ To install Landscape 19.10 using quickstart on Ubuntu 18.04 LTS ("bionic"), foll
 sudo add-apt-repository ppa:landscape/19.10
 sudo apt-get install landscape-server-quickstart
 ```
-If you have a valid OPL license, copy it over to `/etc/landscape/license.txt` and restart the services. Otherwise, a free license with 10+50 seats (bare metal plus LXC containers) will be used:
+If you have a valid Landscape license, copy it over to `/etc/landscape/license.txt` and restart the services. Otherwise, a free license with 10+50 seats (bare metal plus LXC containers) will be used:
 ```
 sudo cp license.txt /etc/landscape/license.txt
 sudo lsctl restart
 ```
 
 ## Setup first user
-The first user that is created in OPL automatically becomes the administrator of the "standalone" account. To create it, please go to `https://<servername>` and fill in the requested information.
+The first user that is created in Landscape automatically becomes the administrator of the "standalone" account. To create it, please go to `https://<servername>` and fill in the requested information.
 
 ## Registering clients
-In order to register a computer with OPL, you need to install the `landscape-client` package:
+In order to register a computer with Landscape, you need to install the `landscape-client` package:
 ```
 sudo apt-get update
 sudo apt-get install landscape-client
 ```
 
-The quickstart package generates and installs a self-signed SSL certificate in `/etc/ssl/certs/landscape_server_ca.crt` using the FQDN of the host for the `commonName` field of the certificate. A copy of this file will be needed on each computer that you register with OPL.
+The quickstart package generates and installs a self-signed SSL certificate in `/etc/ssl/certs/landscape_server_ca.crt` using the FQDN of the host for the `commonName` field of the certificate. A copy of this file will be needed on each computer that you register with Landscape.
 
 On each computer, copy that certificate over to, say, `/etc/landscape/server.pem` and add this line to the configuration file `/etc/landscape/client.conf`:
 ```

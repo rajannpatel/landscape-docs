@@ -3,7 +3,7 @@ Title: Landscape 19.10 Manual Installation
 
 # Manual Installation
 
-This is the baseline deployment recommendation we have for the OPL product when Juju is not used. At a minimum, we have two machines:
+This is the baseline deployment recommendation we have for Landscape Server when Juju is not used. At a minimum, we have two machines:
 
  * **database server**, running Ubuntu 18.04 LTS ("bionic"), with PostgreSQL 10.
  * **application server**, running the same version of Ubuntu as the Database server, hosting the Landscape services
@@ -17,7 +17,7 @@ What you will need:
  * Ubuntu 18.04 LTS ("bionic") server install media.
  * Landscape On-Premises license file. If you don't have one, a free demo license with a small number of seats will be used instead.
  * Server X509 certificate and key, signed by a publicly known Certificate Authority, and issued for the FQDN hostname of the application server.
- * Custom CAs can be used, but this is not documented here as it's considered an advanced topic. Administrators deploying custom CAs most likely know what needs to be done. In any case, this quick how-to may help:[OPL/SSL-creating a simple CA and issuing a certificate](https://help.landscape.canonical.com/LDS/SSL). You MUST use the same version of Ubuntu on both the Application server and the Database server.
+ * Custom CAs can be used, but this is not documented here as it's considered an advanced topic. Administrators deploying custom CAs most likely know what needs to be done. In any case, this quick how-to may help:[SSL-creating a simple CA and issuing a certificate](https://help.landscape.canonical.com/LDS/SSL). You MUST use the same version of Ubuntu on both the Application server and the Database server.
 
 # Installing the Database Server
 After having installed the basic server profile of Ubuntu Server, we need to install the PostgreSQL database and configure it for use by Landscape. Please follow these steps:
@@ -173,7 +173,7 @@ We need to enable the Landscape services now. Please edit `/etc/default/landscap
 RUN_ALL="yes"
 ```
 !!! Note:
-    If more performance and availability are needed out of OPL, it's possible to spread out the services amongst several machines. In that case, for example, one could run message servers in one machine, application servers in another one, etc.
+    If more performance and availability are needed out of Landscape Server, it's possible to spread out the services amongst several machines. In that case, for example, one could run message servers in one machine, application servers in another one, etc.
 
 The message, application and ping services can be configured to run multiple instances. If your hardware has several cores and enough memory (4Gb or more), running two or more of each will improve performance. To run multiple instances of a service, just set the value in the respective `RUN_` line to the number of instances. For example, if you want to run two message servers, just set:
 ```
@@ -204,7 +204,7 @@ Landscape uses Apache to, among other things, redirect requests to each service 
 
 Below is a suggested configuration file that does just that. Install it as `/etc/apache2/sites-available/landscape.conf` and change the following values:
 
- * `@hostname@`: the FQDN of the hostname the clients (browser and machines) will use to connect to OPL. This is what will be in the URL, and it needs to be resolvable via DNS. For example, `lds.example.com`
+ * `@hostname@`: the FQDN of the hostname the clients (browser and machines) will use to connect to Landscape Server. This is what will be in the URL, and it needs to be resolvable via DNS. For example, `lds.example.com`
  * `@certfile@`: the full filesystem path to where the SSL certificate for this server is installed. For example, `/etc/ssl/certs/landscape_server.pem`
  * `@keyfile@`: the full filesystem path to where the corresponding private key of that certificate is installed. For example, `/etc/ssl/private/landscape_server.key`
 
@@ -447,7 +447,7 @@ sudo lsctl restart
 
 
 ## Setup first user
-The first user that is created in OPL automatically becomes the administrator of the "standalone" account. To create it, please go to https://<servername> and fill in the requested information.
+The first user that is created in Landscape automatically becomes the administrator of the "standalone" account. To create it, please go to https://<servername> and fill in the requested information.
 
 ## Configuring the first client
 On the client machine, after installing the `landscape-client` package, please run this command:

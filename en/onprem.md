@@ -25,7 +25,7 @@ Landscape On-Premises consists of two parts:
 Depending on your deployment method, these may live on the same machine or different machines. Here is how you can get started:
 
 ### Quickstart
- * **[Quickstart](./landscape-install-quickstart.md)**, for when you don't have Juju but quickly want to check out On-Prem. Not recommended for production environments when having more than 500 clients.
+ * **[Quickstart](./landscape-install-quickstart.md)**, for when you don't have Juju but quickly want to check out On-Premises. Not recommended for production environments when having more than 500 clients.
 
 ### Juju deployed
  * **[Juju deployed](./landscape-install-juju.md)** for a truly scalable deployment.
@@ -40,7 +40,7 @@ The machine(s) running as the application server will need the following network
 
  * https access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
  * http access to the public Ubuntu archives and `changelogs.ubuntu.com`, in order to update the hash-id-database files and detect new distribution releases. Without this, the release upgrade feature won't work
- * https access to `landscape.canonical.com` in order to query for available OPL releases. If this access is not given, the only drawback is that OPL won't display a note about the available releases in the account page.
+ * https access to `landscape.canonical.com` in order to query for available Landscape On-Premises releases. If this access is not given, the only drawback is that Landscape won't display a note about the available releases in the account page.
 
 # Unsupported Versions
 | **major version**                | **Release date** | **Supported expired on** | **Version of Ubuntu**  |
