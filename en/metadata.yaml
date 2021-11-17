@@ -51,6 +51,9 @@ navigation:
       - title: External Authentication
         location: onprem-auth.md
 
+      - title: Maintenance Tasks
+        location: onprem-maintenance.md
+
   - title: API
     location: api.md
 
