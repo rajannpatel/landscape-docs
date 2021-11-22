@@ -220,7 +220,7 @@ incoming = /upload/standalone/%(lds)s
 ```
 
 
-## Dput claims the files have already been uploaded
+## dput claims the files have already been uploaded
 
 Some packaging hosts like Launchpad normally only allow uploading a set of files once. With those, you would be required to increment the package version revision number (e.g. from `1.2-1ubuntu1` to `1.2-1ubuntu2`), then rebuild to upload a new set of files. With Landscape, you can simply add the `--force` flag to dput and the existing upload will be overwritten.
 
@@ -228,6 +228,16 @@ Some packaging hosts like Launchpad normally only allow uploading a set of files
 ## Invalid distribution error
 
 In the context of an upload error, the distribution refers to the suite (series-pocket). This field is read from the `changes` file, under `Distribution` and under `Changes`. Initially, the package building process initially gets this value from a field in the `debian/changelog` file. Make sure the value of the suite (i.e. series-pocket) is correctly set in the `changelog`, then rebuild the package and/or `changes` file.
+
+There is a special case when the pocket it named `release`. This is used to represent a suite with no pocket suffix (e.g. just `bionic` instead of `bionic-updates`). If the pocket is named `release`, changes files should use just the series name as the `distribution` field value. For our binary upload example, uploading to `distribution/series/release` becomes:
+
+```
+dch --distribution series --force-distribution -U --release ''
+dpkg-genchanges -B -O../hello_2.10-1build3_amd64.changes
+debsign -kupload-key hello_2.10-1build3_amd64.changes
+dput lds:distribution/series/release hello_2.10-1build3_amd64.changes
+```
+
 
 Note that errors about bad distributions can follow misconfigured gpg keys. For instance, the gpg key used to sign (e.g. upload-key) is the actual problem in this log entry:
 
