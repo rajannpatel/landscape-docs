@@ -246,10 +246,10 @@ Using an `https` source could be useful in situation where a contetnt filtering 
  
 ## Upload pockets
 
-Removing a package from a pocket is only supported in upload mode. Landscape lets you create and manage repositories that hold packages uploaded by authorized users. You could, for example, create a staging area to which certain users could upload packages. Here is a quick howto for creating and uploading packages to such a repository.
+Removing a package from a pocket is only supported in upload mode. Landscape lets you create and manage repositories that hold packages uploaded by authorized users. You could, for example, create a staging area to which certain users could upload packages. [Here is a quick how-to for creating and uploading packages.](./upload-tutorial.md)
  
  
-Create another gpg key with the 'real name' of `Upload Key`. Export the key, but this time the secret key part of the upload key is not required. This was only required for the mirror-key as it will be signing your repository files.
+Create another gpg key with the 'real name' of `Upload Key`. Export the key, but this time the secret key part of the upload key is not required. The purpose of this "Upload Key" is for Landscape Server to authenticate uploaded files with a key it will trust. The "mirror-key" is still used by Landscape server to sign received packages with a key the managed machines trust.
 ```
 gpg -a --export $KEYID > upload-key.asc
 landscape-api import-gpg-key upload-key upload-key.asc
@@ -258,9 +258,9 @@ landscape-api get-gpg-keys
 If the above was successful, you will have two gpg keys in Landscape, one with `has_secret` 'True' and the other 'False'.
  
  
-Assuming this pocket is for bionic and that the ubuntu distribution is created already, this will create the upload type pocket:
+Assuming this pocket is for bionic and that the `ubuntu` distribution is created already, this will create the upload type pocket:
 ```
-landscape-api create-pocket staging bionic ubuntu main amd64 upload upload-key
+landscape-api create-pocket staging bionic ubuntu main amd64 upload mirror-key
 ```
 
 where:
@@ -271,7 +271,7 @@ where:
  * **main**: the component
  * **amd64**: the architecture
  * **upload**: the pocket type
- * **upload-key**: a private passphrase-less GPG key
+ * **mirror-key**: a private passphrase-less GPG key with `has_secret`
 
 
 Such a repository will be accessible via this sources.list entry:
@@ -279,6 +279,9 @@ Such a repository will be accessible via this sources.list entry:
 deb http://your-server.com/repository/standalone/ubuntu bionic-staging main
 ```
 You can choose who is allowed to upload packages to this pocket. Since the option `--upload-allow-unsigned` was not used when creating the pocket, only uploads signed by any of the `uploader gpg keys` will be allowed. Unsigned uploads, or signed by a key not in that list, will be rejected. To add or remove a key from that list, use `add-uploader-gpg-keys-to-pocket` and `remove-uploader-gpg-keys-from-pocket` respectively.
+```
+landscape-api add-uploader-gpg-keys-to-pocket staging bionic ubuntu upload-key
+```
  
  
 To upload packages to this pocket we use the tool `dput` with this configuration section in `~/.dput.cf`:
