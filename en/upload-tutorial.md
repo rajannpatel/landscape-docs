@@ -10,7 +10,7 @@ Although there are a few values which might be replaced by more appropriate ones
 The following packages will be used in this document to create packages, sign and upload them.
 
 ```
-sudo apt-get install build-esssential debmake debhelper dput
+sudo apt-get install build-essential debmake debhelper dput
 sudo snap install --devmode landscape-api
 ```
 
@@ -120,12 +120,12 @@ Then, our new package can be uploaded by running the following:
 dput lds:distribution/series/pocket package-name_1.2.3_amd64.changes
 ```
 
-If everything worked as it should, the package is now uploaded and available. Please note that errors are unlikely to surface during the `dput` command. Upload errors, if any, get logged on the server under `/var/log/landscape-server/package-upload.log`. Adding the `-d` argument flag will output more details. Adding the `-f` argument flag can be used to re-upload already uploaded files.
+If everything worked as it should, the package is now uploaded and available. Note that errors processing the package can still happen, even if the `dput` command succeeds. Those upload errors get logged on the server under `/var/log/landscape-server/package-upload.log`. Adding the `-d` argument flag will output some details which might help diagnose connection errors. Adding the `-f` argument flag can be used to re-upload already uploaded files.
 
 
 ## Using the pocket on computers
 
-Now if we recall, we generated a `mirror-key` and used it on the created pocket. To allow `apt` to trust packages from our server, the public (not secret) part of this key can be exported to a file and imported into a target computer:
+Now if we recall, we generated a `mirror-key` and used it on the created pocket. To allow `apt` to trust packages from our server, the public (not secret) part of this key can be exported to a file and imported into a target computer. Once again, replace `landscape.example.com` with your landscape server address when running the following:
 
 ```
 gpg --export mirror-key > landscape.gpg
