@@ -246,7 +246,7 @@ Using an `https` source could be useful in situation where a contetnt filtering 
  
 ## Upload pockets
 
-Removing a package from a pocket is only supported in upload mode. Landscape lets you create and manage repositories that hold packages uploaded by authorized users. You could, for example, create a staging area to which certain users could upload packages. [Here is a quick how-to for creating and uploading packages.](./upload-tutorial.md)
+Landscape lets you create and manage repositories that hold packages uploaded by authorized users. You could, for example, create a staging area to which certain users could upload packages. [Here is a quick how-to for creating and uploading packages.](./upload-tutorial.md)
  
  
 Create another gpg key with the 'real name' of `Upload Key`. Export the key, but this time the secret key part of the upload key is not required. The purpose of this "Upload Key" is for Landscape Server to authenticate uploaded files with a key it will trust. The "mirror-key" is still used by Landscape server to sign received packages with a key the managed machines trust.

@@ -10,8 +10,8 @@ Although there are a few values which might be replaced by more appropriate ones
 The following packages will be used in this document to create packages, sign and upload them.
 
 ```
-sudo apt-get install build-esssential debmake dput
-sudo snap install landscape-api
+sudo apt-get install build-esssential debmake debhelper dput
+sudo snap install --devmode landscape-api
 ```
 
 Make sure you have exported your landscape credentials. If you haven't, they are available from your Landscape Server, at `https://landscape.example.com/settings`
@@ -94,7 +94,7 @@ dpkg-buildpackage -B --sign-key=upload-key
 cd ..
 ```
 
-This will have created a couple of files and folders. The most interesting parts are the `package-name_1.2.3_amd64.deb` file (our new empty package), and the changes file (`package-name_1.2.3_amd64.changes`). The changes file contains meta-data about the package, the target pocket (called `Distribution` in this context), the list of files to upload and a cryptographic signature to authenticate our upload (using the `upload-key`). This is all we need to test uploading!
+This will create a couple of files and folders. The most interesting parts are the `package-name_1.2.3_amd64.deb` file (our new empty package), and the changes file (`package-name_1.2.3_amd64.changes`). The changes file contains meta-data about the package, the target pocket (called `Distribution` in this context), the list of files to upload and a cryptographic signature to authenticate our upload (using the `upload-key`). This is all we need to test uploading!
 
 If you want to know more about the files we generated in the process, the [deb policy manual](https://www.debian.org/doc/debian-policy/ch-source.html) covers their exact format. A lot of upload problems can be traced to missing or incorrectly formatted fields.
 
@@ -109,6 +109,7 @@ tee ~/.dput.cf <<EOF
 fqdn = landscape.example.com
 method = https
 incoming = /upload/standalone/%(lds)s
+EOF
 ```
 
 Be sure to fill the fqdn field with the actual address of your Landscape server.
@@ -119,7 +120,7 @@ Then, our new package can be uploaded by running the following:
 dput lds:distribution/series/pocket package-name_1.2.3_amd64.changes
 ```
 
-If everything worked as it should, the package is now uploaded and available. Note errors are unlikely to surface during the `dput` command. Upload errors, if any, get logged on the server under `/var/log/landscape-server/package-upload.log`. Adding the `-d` argument flag will output more details. Adding the `-f` argument flag can be used to re-upload already uploaded files.
+If everything worked as it should, the package is now uploaded and available. Please note that errors are unlikely to surface during the `dput` command. Upload errors, if any, get logged on the server under `/var/log/landscape-server/package-upload.log`. Adding the `-d` argument flag will output more details. Adding the `-f` argument flag can be used to re-upload already uploaded files.
 
 
 ## Using the pocket on computers
@@ -189,14 +190,14 @@ hello:
 ```
 
 
-# Common errors
+## Common errors
 
-## Incorrect GPG keys when creating the pocket
+### Incorrect GPG keys when creating the pocket
 
 Creating an upload pocket, like mirror pockets, requires a key with `has_secret`. Be sure to generate a key without a passphrase, and to export the secret key. This is not the same as the upload key.
 
 
-## Public key missing
+### Public key missing
 
 Either:
 
@@ -205,7 +206,7 @@ Either:
 * or the gpg key used to sign the `changes` file is not the upload key. Be sure to pass the correct key name or key fingerprint to the `-k` parameter when running `debsign`.
 
 
-## Proxy errors
+### Proxy errors
 
 The standard `dput` package, does not support proxy configuration. If you require a proxy to upload to Landscape server, install the `dput-ng` package. This is a drop-in replacement for dput, but which honors the `https_proxy` environment variable.
 
@@ -220,12 +221,12 @@ incoming = /upload/standalone/%(lds)s
 ```
 
 
-## dput claims the files have already been uploaded
+### dput claims the files have already been uploaded
 
 Some packaging hosts like Launchpad normally only allow uploading a set of files once. With those, you would be required to increment the package version revision number (e.g. from `1.2-1ubuntu1` to `1.2-1ubuntu2`), then rebuild to upload a new set of files. With Landscape, you can simply add the `--force` flag to `dput` and the existing upload will be overwritten.
 
 
-## Invalid distribution error
+### Invalid distribution error
 
 In the context of an upload error, the distribution refers to the suite (series-pocket). This field is read from the `changes` file, under `Distribution` and under `Changes`. Initially, the package building process initially gets this value from a field in the `debian/changelog` file. Make sure the value of the suite (i.e. series-pocket) is correctly set in the `changelog`, then rebuild the package and/or `changes` file.
 
@@ -248,7 +249,7 @@ There have been errors!
 ```
 
 
-## Invalid characters
+### Invalid characters
 
 Deb packages have some strict restrictions over how packages can be named. Package names should be limited to lowercase letters, digits and `+-.` characters. Versions also have similar restrictions. Refer to the [deb policy manual](https://www.debian.org/doc/debian-policy/ch-controlfields.html) for the exact specification.
 
