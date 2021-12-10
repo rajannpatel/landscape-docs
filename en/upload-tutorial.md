@@ -11,7 +11,7 @@ The following packages will be used in this document to create packages, sign an
 
 ```
 sudo apt-get install build-essential debmake debhelper dput
-sudo snap install --devmode landscape-api
+sudo snap install --classic landscape-api
 ```
 
 Make sure you have exported your landscape credentials. If you haven't, they are available from your Landscape Server, at `https://landscape.example.com/settings`
