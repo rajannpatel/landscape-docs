@@ -50,6 +50,10 @@ Landscape 19.10.6 contains the following fix:
 
  * [#1915949](https://bugs.launchpad.net/bugs/1915949) Pam authentication does not handle non-ascii characters.
 
+Landscape 19.10.7 contains the following fix:
+
+ * [#1499686](https://bugs.launchpad.net/bugs/1499686) [#1682105](https://bugs.launchpad.net/bugs/1682105) Charm configs don't get updated in database.
+
 
 ## Upgrade notes
 
