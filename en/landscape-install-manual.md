@@ -5,8 +5,8 @@ Title: Landscape 19.10 Manual Installation
 
 This is the baseline deployment recommendation we have for Landscape Server when Juju is not used. At a minimum, we have two machines:
 
- * **database server**, running Ubuntu 18.04 LTS ("bionic"), with PostgreSQL 10.
- * **application server**, running the same version of Ubuntu as the Database server, hosting the Landscape services
+ * **database server**, running Ubuntu 18.04 LTS ("bionic") with PostgreSQL 10, or running Ubuntu 20.04 ("focal") with PostgreSQL 12.
+ * **application server**, running Ubuntu 18.04 LTS ("bionic"), hosting the Landscape services
 
 This is a long document. Don't be intimidated. If you want a quick installation that just works, but doesn't scale to a large number of machines, then install the `landscape-server-quickstart` package.
 
@@ -26,8 +26,15 @@ After having installed the basic server profile of Ubuntu Server, we need to ins
 In the database server, run this command to install the database software.
 
 ```
-sudo apt-get install postgresql-10 python-apt postgresql-plpython-10 postgresql-contrib-10 postgresql-10-debversion
+sudo apt-get install postgresql-10 python-apt postgresql-plpython3-10 postgresql-contrib-10 postgresql-10-debversion
 ```
+
+Note that if using a different Ubuntu release for the database server (e.g. 20.04), the packages names might differ. For instance, on Ubuntu 20.04:
+
+```
+sudo apt-get install postgresql-12 python-apt postgresql-plpython3-12 postgresql-contrib postgresql-12-debversion
+```
+
 
 ## Create a superuser Landscape can use
 Landscape needs a database superuser in order to create the lower privilege users it needs to perform routine tasks and access the data, as well as alter the database schema whenever needed:

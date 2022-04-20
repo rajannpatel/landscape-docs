@@ -2,6 +2,10 @@ Title: Landscape 19.10 Release Notes
 # Landscape Release 19.10
 These are the release notes for Landscape 19.10.
 
+!!! Warning:
+    For manual and juju upgrades, make sure the database server has the `postgresql-plpython3-10` package, which replaces the obsolete `postgresql-plpython-10` package.
+
+
 ## Highlights
 
  * Improvement for USN detection on ESM
@@ -13,8 +17,6 @@ These are the release notes for Landscape 19.10.
  * [#1817951](https://bugs.launchpad.net/landscape/+bug/1817951) UI issue in Computers API doc
  * [#1770223](https://bugs.launchpad.net/landscape/+bug/1770223) Feature request - enable landscape to authenticate users with OpenID-Connect
  * [#1810793](https://bugs.launchpad.net/landscape/+bug/1810793) Landscape should add GPG material for Bionic
-
- * There are no special upgrade instructions for Landscape 19.10, regardless of the installation method.
 
 Landscape 19.10.1 contains the following fixes:
 
@@ -54,6 +56,25 @@ Landscape 19.10.7 contains the following fix:
 
  * [#1499686](https://bugs.launchpad.net/bugs/1499686) [#1682105](https://bugs.launchpad.net/bugs/1682105) Charm configs don't get updated in database.
 
+Landscape 19.10.8 contains the following fixes:
+
+ * [#1961323](https://bugs.launchpad.net/bugs/1961323) Alert when a UA preference file disables ESM.
+ * [#1878439](https://bugs.launchpad.net/bugs/1878439) Make logo link in offline pages relative.
+ * [#1966095](https://bugs.launchpad.net/bugs/1966095) Set umask in hashid script.
+ * [#1739825](https://bugs.launchpad.net/bugs/1739825) Fix bugs associate with clone status not getting updated. Also UI improvements to clones
+ * [#1962211](https://bugs.launchpad.net/bugs/1962211) Support newer virtio hardware info
+ * [#1945458](https://bugs.launchpad.net/bugs/1945458) Adds content policy headers
+ * [#1940786](https://bugs.launchpad.net/bugs/1940786) Changes to receive message from client containing computer tag info
+ * [#1952802](https://bugs.launchpad.net/bugs/1952802) Trim whitespace on email fields in settings and invite admin pages
+ * [#1924662](https://bugs.launchpad.net/bugs/1924662) Limit processing of HEAD requests
+ * [#1518897](https://bugs.launchpad.net/bugs/1518897) Clamp monitoring graph range.
+ * [#1666720](https://bugs.launchpad.net/bugs/1666720) Quote CSV fields which would be interpreted as formula by Excel
+ * [#1946782](https://bugs.launchpad.net/bugs/1946782) Blocked when the license expires today
+ * [#1932977](https://bugs.launchpad.net/bugs/1932977) Allow PendingComputer edition for users with limited access context
+ * [#1944624](https://bugs.launchpad.net/bugs/1944624) Escape DB store credentials in schema setup.
+ * [#1828601](https://bugs.launchpad.net/bugs/1828601) Validate registration key characters.
+ * [#1943861](https://bugs.launchpad.net/bugs/1943861) Disable nested access roles on admin disable.
+ * [#1928356](https://bugs.launchpad.net/bugs/1928356) Allow reporting about older USNs in compliance report.
 
 ## Upgrade notes
 
@@ -78,6 +99,13 @@ sudo apt-get dist-upgrade
 When prompted, reply with `N` to any dpkg questions about configuration files so the existing files stay untouched. The quickstart package will make any needed modifications to your configuration files automatically.
 
 ## Upgrading a manual installation deployment
+
+!!! Warning:
+    Prior to upgrading, make sure the database server has the `postgresql-plpython3-10` package installed. This replaces the obsolete `postgresql-plpython-10` dependency. Failing to have that new database requirement, the schema upgrade will fail.
+
+```
+sudo apt install postgresql-plpython3-10
+```
 
 Follow these steps to perform a non-quickstart upgrade, that is, you did not use the landscape-server-quickstart package when installing Landscape 19.10:
 
@@ -173,6 +201,13 @@ Re-enable the landscape-server cron jobs in `/etc/cron.d/landscape-server` in al
 ```
 
 ## Upgrading a Juju 2.x deployment
+
+
+Prior to upgrading landscape-server units, make sure the database servers have the newly required `postgresql-plpython3-VERSION`. That version requirement might already be fulfilled if deployed from a recent bundle. Otherwise, add it to the postgresql units:
+
+```
+juju config postgresql extra_packages='python-apt postgresql-contrib postgresql-.*-debversion postgresql-plpython.*'
+```
 
 Juju deployed Landscape can be upgraded in place, but it does depend if it is a single unit or multiple unit deployment.
 
