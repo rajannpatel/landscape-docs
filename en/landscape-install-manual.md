@@ -23,13 +23,13 @@ What you will need:
 After having installed the basic server profile of Ubuntu Server, we need to install the PostgreSQL database and configure it for use by Landscape. Please follow these steps:
 
 ## Install PostgreSQL and required libraries
-In the database server, run this command to install the database software.
+On an Ubuntu 18.04 (bionic) database server, run this command to install the database software.
 
 ```
 sudo apt-get install postgresql-10 python-apt postgresql-plpython3-10 postgresql-contrib-10 postgresql-10-debversion
 ```
 
-Note that if using a different Ubuntu release for the database server (e.g. 20.04), the packages names might differ. For instance, on Ubuntu 20.04:
+Note that if using a different Ubuntu release for the database server, the package names might differ. For instance, on Ubuntu 20.04:
 
 ```
 sudo apt-get install postgresql-12 python-apt postgresql-plpython3-12 postgresql-contrib postgresql-12-debversion
