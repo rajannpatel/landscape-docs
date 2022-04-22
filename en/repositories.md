@@ -37,15 +37,15 @@ deb http://archive.ubuntu.com/DISTRIBUTION/ SERIES-POCKET COMPONENT [COMPONENT .
 ```
 
 ## Disk space requirements
-Packages will be downloaded under the `/var/lib/landscape/landscape-repository/standalone/` directory. As of February 2019, here is the breakdown of the total size of the release,updates and security pockets for the main,restricted,universe and multiverse components of the amd64 and i386 architectures.
+Packages will be downloaded under the `/var/lib/landscape/landscape-repository/standalone/` directory. As of March 2022, here is an approximate breakdown of the total size of the release, updates and security pockets for the main, restricted, universe, multiverse components of the amd64 and i386 architectures.
 
-|           |      | 18.04|       | |        |16.04|        | |       |14.04  |
-|-----------|------|------|-------|-|--------|-----|--------|-|-------|-------|-------
-|           | amd64|i386  |total  |-|   amd64|i386 | total  |-|amd64  |i386   |total
-|Release    |73GB  |72GB  |145GB  |-|    73GB|70GB | 143GB  |-|59GB   |59GB   |118GB
-|Updates    |22GB  |18GB  |40GB   |-|    42GB|34GB | 76GB   |-|46GB   |43GB   |89GB
-|Security   |1.4GB |1.4GB |2.8GB  |-|   1.2GB|1.2GB|2.4GB   |-|1.4GB  |1.3GB  |2.7GB
-|All Pockets|96.4GB|91.4GB|187.8GB|-|116.2GB|105.2GB|221.4GB|-|106.4GB|103.3GB|209.7GB
+|           |        |   focal|        | |        |  bionic|        | |        |  xenial|        | 
+|-----------|--------|--------|--------|-|--------|--------|--------|-|--------|--------|--------|-
+|           |   amd64|    i386|   total|-|   amd64|    i386|   total|-|   amd64|    i386|   total|-
+|Release    |    80GB|    57GB|   137GB|-|    72GB|    71GB|   143GB|-|    72GB|    69GB|   141GB|-
+|Updates    |   111GB|    27GB|   138GB|-|   143GB|    66GB|   209GB|-|    90GB|    70GB|   160GB|-
+|Security   |   102GB|    24GB|   126GB|-|   131GB|    57GB|   188GB|-|    79GB|    60GB|   139GB|-
+
 
 ## Create the gpg key
 
