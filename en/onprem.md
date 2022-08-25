@@ -43,7 +43,7 @@ The machine(s) running as the application server will need the following network
  * https access to `landscape.canonical.com` in order to query for available Landscape On-Premises releases. If this access is not given, the only drawback is that Landscape won't display a note about the available releases in the account page.
 
 # Unsupported Versions
-| **major version**                | **Release date** | **Supported expired on** | **Version of Ubuntu**  |
+| **major version**                | **Release date** | **Support expired on** | **Version of Ubuntu**  |
 | ----------------------           | ---------------- | ------------------------ | ---------------------  |
 | [19.01](./ReleaseNotes19.01.md)  | 2019-Jan         | **2020-Jan**             | 18.04 LTS              |
 | [18.03](./ReleaseNotes18.03.md)  | 2018-Jun         | **2019-Jun**             | 16.04 LTS or 18.04 LTS |
