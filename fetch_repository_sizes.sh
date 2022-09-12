@@ -4,7 +4,7 @@
 #
 # BUG: multi-arch debs are counted twice in the combined total.
 
-ALL_SERIES="focal bionic xenial"
+ALL_SERIES="jammy focal bionic"
 ARCHS="amd64 i386"
 COMPS="main restricted universe multiverse"
 

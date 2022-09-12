@@ -39,12 +39,12 @@ deb http://archive.ubuntu.com/DISTRIBUTION/ SERIES-POCKET COMPONENT [COMPONENT .
 ## Disk space requirements
 Packages will be downloaded under the `/var/lib/landscape/landscape-repository/standalone/` directory. As of March 2022, here is an approximate breakdown of the total size of the release, updates and security pockets for the main, restricted, universe, multiverse components of the amd64 and i386 architectures.
 
-|           |        |   focal|        | |        |  bionic|        | |        |  xenial|        | 
+|           |        |   jammy|        | |        |   focal|        | |        |  bionic|        | 
 |-----------|--------|--------|--------|-|--------|--------|--------|-|--------|--------|--------|-
 |           |   amd64|    i386|   total|-|   amd64|    i386|   total|-|   amd64|    i386|   total|-
-|Release    |    80GB|    57GB|   137GB|-|    72GB|    71GB|   143GB|-|    72GB|    69GB|   141GB|-
-|Updates    |   111GB|    27GB|   138GB|-|   143GB|    66GB|   209GB|-|    90GB|    70GB|   160GB|-
-|Security   |   102GB|    24GB|   126GB|-|   131GB|    57GB|   188GB|-|    79GB|    60GB|   139GB|-
+|Release    |   105GB|    78GB|   183GB|-|    80GB|    57GB|   137GB|-|    72GB|    71GB|   143GB|-
+|Updates    |    39GB|     8GB|    47GB|-|   163GB|    32GB|   195GB|-|   171GB|    72GB|   244GB|-
+|Security   |    29GB|     6GB|    35GB|-|   150GB|    29GB|   179GB|-|   159GB|    63GB|   222GB|-
 
 
 ## Create the gpg key
