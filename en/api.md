@@ -32,7 +32,7 @@ them as shell variable with commands like:
 ```bash
 export LANDSCAPE_API_KEY="<API access key>"
 export LANDSCAPE_API_SECRET="<API secret key>"
-export LANDSCAPE_API_URI="https://<lds-hostname>/api/"
+export LANDSCAPE_API_URI="https://<landscape-hostname>/api/"
 ```
 
 If you use a custom Certificate Authority (CA), you also need to export the
@@ -42,4 +42,8 @@ path to your certificate:
 export LANDSCAPE_API_SSL_CA_FILE="/path/to/ca/file"
 ```
 
-[Landscape API Reference](https://landscape.canonical.com/static/doc/api/)
+Next, decide how you want to use the API:
+
+- [command-line client](./api-client-package.md): easy to use, shell-script friendly
+- [Python module](./api-python.md): more powerful, recommended if you want to drive the API via Python
+- [low-level HTTP requests](./api-http-requests.md): in the case you want to know what is going on, or write a client for some other language

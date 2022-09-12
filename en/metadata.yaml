@@ -57,6 +57,20 @@ navigation:
   - title: API
     location: api.md
 
+    children:
+
+      - title: Command-line client
+        location: api-client-package.md
+
+      - title: Python module
+        location: api-python.md
+
+      - title: low-level HTTP requests
+        location: api-http-requests.md
+
+      - title: API methods
+        location: api-methods.md
+
 site_footer_links:
   - title: 'Report an issue on this site'
     location: https://github.com/canonical-docs/landscape-docs/issues

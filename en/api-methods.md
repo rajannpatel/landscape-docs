@@ -1,0 +1,142 @@
+Title: API Methods
+
+# API methods
+
+This is the list of available methods in the API by domain:
+
+- Activities
+    - GetActivities
+    - GetActivityTypes
+    - CancelActivities
+    - ApproveActivities
+- Alerts
+    - AlertTagAssociationMethod
+    - AssociateAlert
+    - DisassociateAlert
+    - GetAlertSubscribers
+    - GetAlerts
+    - SubscribeToAlert
+    - UnsubscribeFromAlert
+- Administrators
+    - InviteAdministrator
+    - GetAdministrators
+    - DisableAdministrator
+- Computers
+    - GetComputers
+    - AddAnnotationToComputers
+    - RemoveAnnotationFromComputers
+    - AddTagsToComputers
+    - RemoveTagsFromComputers
+    - ChangeComputersAccessGroup
+    - RemoveComputers
+    - GetPendingComputers
+    - AcceptPendingComputers
+    - RejectPendingComputers
+    - CreateCloudOtps
+    - RebootComputers
+    - ShutdownComputers
+    - RenameComputers
+- GPG
+    - GetGPGKeys
+    - ImportGPGKey
+    - RemoveGPGKey
+- Packages
+    - GetPackages
+    - InstallPackages
+    - RemovePackages
+    - UpgradePackages
+- Package Profiles
+    - GetPackageProfiles
+    - CopyPackageProfile
+    - CreatePackageProfile
+    - RemovePackageProfile
+    - AssociatePackageProfile
+    - DisassociatePackageProfile
+    - EditPackageProfile
+- Removal Profiles
+    - CreateRemovalProfile
+    - RemoveRemovalProfile
+    - GetRemovalProfiles
+    - EditRemovalProfile
+    - AssociateRemovalProfile
+    - DisassociateRemovalProfile
+- Reporting
+    - GetCSVComplianceData
+    - GetComputersNotUpgraded
+    - GetNotPingingComputers
+    - GetUSNTimeToFix
+    - GetUpgradedComputersByFrequency
+- Repositories
+    - CreateDistribution
+    - GetDistributions
+    - RemoveDistribution
+    - CreateSeries
+    - RemoveSeries
+    - DeriveSeries
+    - CreatePocket
+    - RemovePocket
+    - SyncMirrorPocket
+    - PullPackagesToPocket
+    - DiffPullPocket
+    - ListPocket
+    - EditPocket
+    - RemovePackagesFromPocket
+    - CreateRepositoryProfile
+    - GetRepositoryProfiles
+    - GetAPTSources
+    - CreateAPTSource
+    - RemoveAPTSource
+    - RemoveAPTSources
+    - AssociateRepositoryProfile
+    - DisassociateRepositoryProfile
+    - AddPocketsToRepositoryProfile
+    - RemovePocketsFromRepositoryProfile
+    - AddAPTSourcesToRepositoryProfile
+    - RemoveRepositoryProfile
+    - RemoveAPTSourceFromRepositoryProfile
+    - RemoveAPTSourcesFromRepositoryProfile
+    - RemoveRepositoryProfiles
+    - EditRepositoryProfile
+    - AddUploaderGPGKeysToPocket
+    - RemoveUploaderGPGKeysFromPocket
+    - AddPackageFiltersToPocket
+    - RemovePackageFiltersFromPocket
+- Role Based Access Control
+    - AddAccessGroupsToRole
+    - AddPermissionsToRole
+    - AddPersonsToRole
+    - CopyRole
+    - CreateAccessGroup
+    - CreateRole
+    - GetAccessGroups
+    - GetPermissions
+    - GetRoles
+    - RemoveAccessGroup
+    - RemoveAccessGroupsFromRole
+    - RemovePermissionsFromRole
+    - RemovePersonsFromRole
+    - RemoveRole
+- Saved searches
+    - CreateSavedSearch
+    - EditSavedSearch
+    - GetSavedSearches
+    - RemoveSavedSearch
+- Scripts
+    - GetScripts
+    - GetScriptCode
+    - ExecuteScript
+    - RemoveScript
+    - CreateScript
+    - EditScript
+    - CopyScript
+    - RemoveScriptAttachment
+    - CreateScriptAttachment
+- Upgrade profiles
+    - AssociateUpgradeProfile
+    - CreateUpgradeProfile
+    - DisassociateUpgradeProfile
+    - EditUpgradeProfile
+    - RemoveUpgradeProfile
+    - GetUpgradeProfiles
+- Event Log
+    - GetEventLog
