@@ -23,7 +23,7 @@ To avoid having to pass the access key, secret key and endpoint URL everytime yo
 #!/bin/bash
 export LANDSCAPE_API_KEY="<API access key>"
 export LANDSCAPE_API_SECRET="<API secret key>"
-export LANDSCAPE_API_URI="https://<lds-hostname>/api/"
+export LANDSCAPE_API_URI="https://<landscape-hostname>/api/"
 ```
 
 If you are using a custom Certificate Authority (CA), you will also need to tell the API tool where to find that certificate:
