@@ -1,7 +1,8 @@
-Title: Landscape On-Premises
-# Landscape On-Premises
+Title: Self-hosted Landscape
 
-Landscape On-Premises, is the standalone version of Landscape that you can install on your own network.
+# Self-hosted Landscape
+
+Self-hosted Landscape, is the standalone version of Landscape that you can install on premise, or in a public cloud.
 
 Each major Landscape version is supported for a period of one year after release. Here are the currently supported releases:
 
@@ -10,14 +11,14 @@ Each major Landscape version is supported for a period of one year after release
 | [19.10](./ReleaseNotes19.10.md)  | 2019-Oct         | **2023-Apr**        | 18.04 LTS              |
 
 !!! Note:
-    Work is being done to allow Landscape On-Premises to run on Ubuntu 20.04. However, there is currently no ETA for that support. Once Ubuntu 20.04 is supported, Landscape On-Premises will still continue to be supported on Ubuntu 18.04 until there has been sufficient time for customers to migrate their environment.
+    Work is being done to allow self-hosted Landscape to run on Ubuntu 20.04 and 22.04. This version of Landscape is undergoing development and testing, and will be available in Q1 2023. Once Ubuntu 20.04 and 22.04 are supported, self-hosted Landscape will still continue to be supported on Ubuntu 18.04 until there has been sufficient time for customers to migrate their environment.
 
 !!! Note:
-    The Landscape client is available for all [supported Ubuntu releases](https://ubuntu.com/about/release-cycle), independently of the Landscape On-Premises releases.
+    The Landscape client is available for all [supported Ubuntu releases](https://ubuntu.com/about/release-cycle), independently of the self-hosted Landscape releases.
 
 
 ## Installation
-Landscape On-Premises consists of two parts:
+self-hosted Landscape consists of two parts:
 
  * **database server**
  * **application server**
@@ -40,7 +41,7 @@ The machine(s) running as the application server will need the following network
 
  * https access to `usn.ubuntu.com` in order to download the USN database and detect security updates. Without this, the available updates won't be distinguished between security related and regular updates
  * http access to the public Ubuntu archives and `changelogs.ubuntu.com`, in order to update the hash-id-database files and detect new distribution releases. Without this, the release upgrade feature won't work
- * https access to `landscape.canonical.com` in order to query for available Landscape On-Premises releases. If this access is not given, the only drawback is that Landscape won't display a note about the available releases in the account page.
+ * https access to `landscape.canonical.com` in order to query for available self-hosted Landscape releases. If this access is not given, the only drawback is that Landscape won't display a note about the available releases in the account page.
 
 # Unsupported Versions
 | **major version**                | **Release date** | **Support expired on** | **Version of Ubuntu**  |

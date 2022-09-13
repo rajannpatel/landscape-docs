@@ -41,7 +41,7 @@ Landscape is a system management tool designed to let you easily manage multiple
 
 ## Available in two flavors:
 
- * SaaS variant found at [landscape.canonical.com](https://landscape.canonical.com/) can be used as a hosted service part of a [Ubuntu Advantage](https://buy.ubuntu.com/) subscription or [directly](https://landscape.canonical.com/try-landscape).
- * [Landscape On-Premises](./onprem.md) is meant for those wanting to have the server installed and managed by themselves, on dedicated hardware.
+ * Landscape SaaS available with as a hosted service, and bundled with your [Ubuntu Advantage](https://ubuntu.com/advantage) subscription.
+ * [Self-hosted Landscape](./onprem.md) is meant for those wanting to have the Landscape server(s) installed and managed by themselves, on dedicated hardware.
 
-The main difference between the two flavors of Landscape is that On-Premises has repository management. In general, the SaaS version receives new features first. Therefore, there is the possibility for differences between the two versions. The base code is the same, but the SaaS version might get new features and bug fixes faster than Landscape On-Premises.
+The main differences between the two flavors of Landscape is that the self-hosted offering provides repository management, repository profiles, and custom IAM and SSO integration. The code for the self-hosted Landscape and Landscape SaaS is the same.

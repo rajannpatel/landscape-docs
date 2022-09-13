@@ -2,7 +2,7 @@ Title: Repositories
 
 # Repositories
 
-Repository management requires the use of the Landscape [API.](./api.md) Set it up and have it ready for the next steps. Linux distributions like Ubuntu use repositories to hold packages you can install on managed computers. While Ubuntu has several repositories that anyone can access, you can also maintain your own repositories on your network. This can be useful when you want to maintain packages with different versions from those in the community repositories, or if you've packages in-house software for installation. Once you add your machines a Landscape repository profile, it will take over the sources files. From now on, you will have to manage all the apt sources you need using Landscape. 
+Repository management requires the use of the Landscape [API.](./api.md) Set it up and have it ready for the next steps. Linux distributions like Ubuntu use repositories to hold packages you can install on managed computers. While Ubuntu has several repositories that anyone can access, you can also maintain your own repositories on your network, and enforce repository configurations for the machines you manage. This can be useful when you want to maintain packages with different versions from those in the community repositories, or if you've packages in-house software for installation. Once you add your machines a Landscape repository profile, it will take over the sources files. From now on, you will have to manage all the apt sources you need using Landscape. Manual edits to sources files on machines with repository profiles will be overwritten by Landscape Server.
 
 ## Terminology
 
@@ -49,7 +49,7 @@ Packages will be downloaded under the `/var/lib/landscape/landscape-repository/s
 
 ## Create the gpg key
 
-Create a secret key GPG key and import it into Landscape This will be used by Landscape On-Premises to sign your repository. 
+Create a secret key GPG key and import it into Landscape This will be used by self-hosted Landscape to sign your repository. 
 For this guide, we'll create a key with the 'real name' of `Mirror Key`.
 
 First step is to install and run rngd to speed-up the creation of the gpg key.
@@ -179,10 +179,11 @@ and
  
 ## Create a repository profile
 We will create a repository profile named `example-profile` that later will be associated with a tag named `example-tag`. This profile will be applied to all computers that have that tag.
-```
-landscape-api create-repository-profile --description "This profile is for Landscape On-Premises servers." example-profile
+
+```text
+landscape-api create-repository-profile --description "This profile is for self-hosted Landscape servers." example-profile
 {u'all_computers': False,
- u'description': u'This profile is for Landscape On-Premises servers.',
+ u'description': u'This profile is for self-hosted Landscape servers.',
  u'id': 5,
  u'name': u'example-profile',
  u'pockets': [],
@@ -194,7 +195,7 @@ This will associate all the computers with the tag `example-tag` to the `example
 ```
 landscape-api associate-repository-profile --tags example-tag example-profile
 {u'all_computers': False,
- u'description': u'This-profile-is-for-Landscape-On-Premises-servers.',
+ u'description': u'This-profile-is-for-self-hosted-Landscape-servers.',
  u'id': 5,
  u'name': u'example-profile',
  u'pockets': [],

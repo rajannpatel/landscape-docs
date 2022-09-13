@@ -25,7 +25,7 @@ navigation:
       - title: Use cases
         location: landscape-use-cases.md
 
-  - title: Landscape On&#8209;Premises
+  - title: Self-hosted Landscape
     location: onprem.md
 
     children:

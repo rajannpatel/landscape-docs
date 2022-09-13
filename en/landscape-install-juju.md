@@ -31,7 +31,7 @@ juju deploy cs:landscape-scalable
 juju deploy cs:landscape-dense
 ```
 This is useful for the cases where the LXD containers don't get externally routable IP addresses.
-## Accessing Landscape On-Premises
+## Accessing self-hosted Landscape
 Once the deployment has finished, grab the address of the first `haproxy` unit and access it with your browser:
 ```
 juju status haproxy

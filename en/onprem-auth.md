@@ -2,7 +2,7 @@ Title: External Authentication
 
 # Authentication
 
-Landscape On-Premises supports a few methods of authentication for its web interface.
+Self-hosted Landscape supports a few methods of authentication for its web interface.
 
 ## PAM Support
 

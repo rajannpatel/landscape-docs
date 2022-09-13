@@ -1,5 +1,7 @@
-Title: Landscape On-Prem Quickstart deployment
+Title: Self-hosted Landscape Quickstart deployment
+
 # Quickstart deployment
+
 The so called quickstart mode of deploying Landscape consists of installing all the necessary software on a single machine. This is very handy for quickly checking out a new version of Landscape when you don't have Juju, but should not be used for production deployments because it can't be scaled.
 
 Advantages:

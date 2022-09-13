@@ -8,15 +8,15 @@ group computers using any set of characteristics; architecture and location
 might be two logical tagging schemes. Tag names may use any combination of
 letters, numbers, and dashes. Each computer can be associated with multiple
 tags. There is no menu choice for tags; rather, you can select multiple
-computers under the COMPUTERS menu and apply or remove one or more tags to all
-the ones you select on the INFO screen. If you want to specify more than one
-tag at a time for your selected computers, separate the tags by spaces.
+computers under the **Computers** menu and apply or remove one or more tags to all
+the ones you select on the **Info** screen. If you want to specify more than one
+tag at a time for your selected computers, separate the tags with spaces.
 
 ### Packages
 
 In Linux, a package is a group of related files for an application that make it
 easy to install, upgrade, and remove the application. You can manage packages
-from the PACKAGES menu under COMPUTERS.
+from the **Packages** tab under **Computers**.
 
 ### Repositories
 
@@ -34,8 +34,8 @@ automatically installed on the machines associated with a specific access
 group. You can associate zero or more computers with each upgrade profile via
 tags to install packages on those computers. You can also associate an upgrade
 profile with an access group, which limits its use to only computers within
-the specified access group. You can manage upgrade profiles from the UPGRADE
-PROFILES link in the PROFILES choice under your account.
+the specified access group. You can manage upgrade profiles from the **Upgrade Profiles**
+link under the **Profiles** tab of the dashboard.
 
 ### Package profiles
 
@@ -46,8 +46,8 @@ associated systems should always get, or never get. You can associate zero or
 more computers with each package profile via tags to install packages on those
 computers. You can also associate a package profile with an access group,
 which limits its use to only computers within the specified access group. You
-can manage package profiles from the Package Profiles link in the PROFILES
-menu under your account.
+can manage package profiles from the **Package Profiles** link in the **Profiles**
+tab in the dashboard.
 
 ### Removal profiles
 
@@ -61,7 +61,7 @@ associate zero or more computers with each removal profile via tags to ensure
 those computers are governed by this removal profile. You can also associate a
 removal profile with an access group, which limits its use to only computers
 within the specified access group. You can manage removal profiles from the
-REMOVAL PROFILES link in the PROFILES choice under your account.
+**Removal Profiles** link under the **Profiles** tab in the dashboard.
 
 ### Scripts
 
@@ -69,14 +69,14 @@ Landscape lets you run scripts on the computers you manage in your account.
 The scripts may be in any language, as long as an interpreter for that
 language is present on the computers on which they are to run. You can
 maintain a library of scripts for common tasks. You can manage scripts from
-the STORED SCRIPTS menu under your account, and run them against computers
-from the SCRIPTS menu under COMPUTERS.
+the **Scripts** tab, and run them against computers via the **Scripts** link 
+in the secondary navigation below **Computers**.
 
 ### Administrators
 
 Administrators are people who are authorized to manage computers using
-Landscape. You can manage administrators from the ADMINISTRATORS menu under
-your account.
+Landscape. You can manage administrators from the **Administrators** tab in the
+dashboard.
 
 ### Access Groups
 
@@ -84,7 +84,7 @@ Landscape lets administrators limit administrative rights on computers by
 assigning them to logical groupings called access groups. Each computer can be
 in only one access group. Typical access groups might be constructed around
 organizational units or departments, locations, or hardware architecture. You
-can manage access groups from the ACCESS GROUPS menu under your account; read
+can manage access groups from the **Access Groups** tab in the dashboard; read
 about [how to create access groups][createaccess], [add computers to access
 groups][addcomputers], and [associate roles with access
 groups][admins].  It is good policy to come up with and document a naming

@@ -15,7 +15,7 @@ This is a long document. Don't be intimidated. If you want a quick installation 
 What you will need:
 
  * Ubuntu 18.04 LTS ("bionic") server install media.
- * Landscape On-Premises license file. If you don't have one, a free demo license with a small number of seats will be used instead.
+ * self-hosted Landscape license file. If you don't have one, a free demo license with a small number of seats will be used instead.
  * Server X509 certificate and key, signed by a publicly known Certificate Authority, and issued for the FQDN hostname of the application server.
  * Custom CAs can be used, but this is not documented here as it's considered an advanced topic. Administrators deploying custom CAs most likely know what needs to be done. In any case, this quick how-to may help:[SSL-creating a simple CA and issuing a certificate](https://help.landscape.canonical.com/LDS/SSL). You MUST use the same version of Ubuntu on both the Application server and the Database server.
 

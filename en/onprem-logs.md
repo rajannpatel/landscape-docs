@@ -21,7 +21,7 @@ Landscape generates several log files in `/var/log/landscape`:
 - `package-upload.log`: output of package-upload server, which is used in repository management for upload pockets, which are repositories that hold packages that are uploaded to them by authorized users
 - `pingserver.log`: output of pingserver; the pingserver tracks client heartbeats to watch for unresponsive clients
 - `process-alerts.log`: output of the cron job used to trigger alerts and send out alert email messages
-- `syncldsreleases.log`: daily cron job that checks for new Landscape On-Premises release versions
+- `syncldsreleases.log`: daily cron job that checks for new self-hosted Landscape release versions
 - `update-security-db.log`: output of the cron job that checks for new Ubuntu Security Notices
 - `update-alerts.log`: output of that cron job. Used to determine which computers are offline
 - `usn-script.log`: output from the usn-script, which process the new data from the Ubuntu Security Notices

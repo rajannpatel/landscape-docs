@@ -10,7 +10,7 @@ your account.
 
 On this page, the upper part of the screen shows a list of existing
 administrators and their email addresses. You may create as many as 1,000
-administrators, or as few as one. If you're running Landscape On-Premises, the
+administrators, or as few as one. If you're running self-hosted Landscape, the
 first user you create automatically become an administrator of your account. If
 you're using the hosted version of Landscape, Canonical sends you an
 administrator invitation when your account is created. After that, you must
