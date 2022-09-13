@@ -97,12 +97,12 @@ your organization.
 For each access group, you can assign management privileges to administrators
 via the use of roles. Administrators may be associated with multiple roles, and
 roles may be associated with many access groups. You can manage roles from the
-ROLES menu under your account.
+**Roles** tab in the dashboard.
 
 ### Alerts
 
 Landscape uses alerts to notify administrators of conditions that require
-attention. You can manage alerts from the ALERTS menu under your account.
+attention. You can manage alerts from the **Alerts** tab in the dashboard.
 
 [repositories]: https://help.ubuntu.com/community/Repositories/Ubuntu
 [createaccess]: ./landscape-access-groups.md#creating-access-groups
