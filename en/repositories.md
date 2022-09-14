@@ -9,9 +9,9 @@ Repository management requires the use of the Landscape [API.](./api.md) Set it 
 |Term               | Meaning	                             | Example
 |-------------------|----------------------------------------|---------------------------------------------------
 |Distribution       | A flavor of Linux                      | Ubuntu
-|Series             | A distribution release nickname        | Trusty, Xenial, Bionic
+|Series             | A distribution release nickname        | Bionic, Focal, Jammy
 |Pocket             | Where packages are stored              | release(*), updates, security, proposed, backports
-|Suite              | A combination of a series and a pocket | bionic-updates
+|Suite              | A combination of a series and a pocket | jammy-updates
 |Components         | An apt sources.list line               | main, restricted, universe, multiverse
 |Architecture       | A computer's CPU/Hardware	             | amd64, i386, armhf, source (for source packages)
 
