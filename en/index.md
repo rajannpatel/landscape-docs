@@ -45,13 +45,3 @@ Landscape is a system management tool designed to let you easily manage multiple
  * [Self-hosted Landscape](./onprem.md) is meant for those wanting to have the Landscape server(s) installed and managed by themselves, on dedicated hardware.
 
 The main differences between the two flavors of Landscape is that the self-hosted offering provides repository management, repository profiles, and custom IAM and SSO integration. The code for the self-hosted Landscape and Landscape SaaS is the same.
-
-## System and Network Requirements
-
-The baseline compute power required to run Landscape is a dual-core processor (or 2 virtual CPUs) running at 2.0GHz or higher, with at least 4GB of RAM, and 10GB of disk space.
-
-One machine with these specifications will run the landscape-server-quickstart package. When using Juju or manually installing across multiple machines, none of the machines should be configured below these baseline compute power specifications.
-
-The operating system must be Ubuntu Server 18.04 LTS x86_64 for Landscape Server. PostgreSQL may be run on Ubuntu Server 18.04 LTS, 20.04 LTS, or 22.04 LTS.
-
-Any machines you manage with Landscape should be able to access your Landscape installation over network ports 80/TCP (HTTP) and 443/TCP (HTTPS). You can optionally open port 22/TCP (SSH) as well for maintenance of your Landscape installation.
