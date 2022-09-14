@@ -86,7 +86,7 @@ Common examples of activities with progress would be syncing a pocket repository
 
 For example, the following GetActivities request looks would report activities with ongoing progress something like the following:
 
-```JSON
+```json
 [
     {
         "id": 73,
@@ -119,8 +119,9 @@ For example, the following request gets a list of all possible activity types:
 
 The method returns a JSON serialized list of activity types, like the following result:
 
-```JSON
-["RestartRequest",
+```json
+[
+    "RestartRequest",
     "EditUserRequest",
     "SyncPocketRequest",
     "TerminateSystemRequest",

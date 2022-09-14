@@ -735,6 +735,18 @@ The following errors may be raised:
 
 The method returns JSON serialized info of the profile status:
 
+```text
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["my-computers", "lucid", "server"],
+ "all_computers": False,
+ "pockets": []}
+
+```
+
+The JSON equivalent output is:
+
 ```json
 {
     "name": "lucide-example",
@@ -777,6 +789,17 @@ The following errors may be raised:
 
 The method returns JSON serialized info of the profile status:
 
+```text
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["desktop", "my-computers"],
+ "all_computers": False,
+ "pockets": []}
+```
+
+The JSON equivalent output is:
+
 ```json
 {
     "name": "lucide-example",
@@ -811,6 +834,18 @@ Example of a valid request:
 ```
 
 The method returns JSON serialized info of the profile status:
+
+```text
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["desktop", "my-computers"],
+ "all_computers": False,
+ "pockets": [ ... ],
+ "apt_sources": []}
+```
+
+The JSON equivalent output is:
 
 ```json
 {
@@ -856,6 +891,18 @@ Example of a valid request:
 
 The method returns JSON serialized info of the profile status:
 
+```text
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["desktop", "my-computers"],
+ "all_computers": False,
+ "pockets": [],
+ "apt_sources": []}
+```
+
+The JSON equivalent output is:
+
 ```json
 {
     "name": "lucide-example",
@@ -895,6 +942,26 @@ Example of a valid request:
 ```
 
 The method returns JSON serialized info of the profile status:
+
+```text
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["desktop", "my-computers"],
+ "all_computers": False,
+ "pockets": [],
+ "apt_sources": [
+     {"line": "deb http://example.com/ubuntu lucid main,
+      "gpg_key": None,
+      "id": 919,
+      "name": "lucid-main"},
+     {"line": u'deb http://example.com/ubuntu lucid universe",
+      "'gpg_key": None,
+      "id": 920,
+      "name": "lucid-universe"}]}}
+```
+
+The JSON equivalent output is:
 
 ```json
 {
@@ -961,6 +1028,18 @@ Example of a valid request:
 The method returns JSON serialized info of the profile status:
 
 ```json
+{"name": "lucide-example",
+ "id": 178,
+ "description": "A profile for ubuntu lucid",
+ "tags": ["desktop", "my-computers"],
+ "all_computers": False,
+ "pockets": [],
+ "apt_sources": []}
+```
+
+The JSON equivalent output is:
+
+```json
 {
     "name": "lucide-example",
     "id": 178,
@@ -1020,6 +1099,16 @@ The following errors may be raised:
 
 The method returns a JSON serialized dictionary of the repository profile:
 
+```text
+{"all_computers": False,
+ "description": "Example Lucid profile",
+ "id": 1104,
+ "name": "lucid-example",
+ "tags": ["example"]}
+```
+
+The JSON equivalent output is:
+
 ```json
 {
     "all_computers": false,
@@ -1058,6 +1147,21 @@ The following errors may be raised:
 - `GPGKeyAlreadyAssociated`: GPG key is already added to pocket.
 
 The method returns JSON serialized info of the pocket:
+
+```text
+{"name": "devel",
+ "architectures": ["i386"],
+ "creation_time": "2011-07-27T09:07:59Z",
+ "components": ["main", "universe"],
+ "mode": "upload",
+ "upload_gpg_keys": [
+    {"id": 11,
+    "name": "key",
+    "fingerprint": "a404:34a3:e40c:1add:94fa:31b4:30a7:5431:a2eb:521a",
+    "has_secret": false}]}
+```
+
+The JSON equivalent output is:
 
 ```json
 {

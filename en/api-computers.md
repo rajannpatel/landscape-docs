@@ -50,6 +50,28 @@ For example, the following request looks for all computers with the tag ‘serve
 
 The method returns a JSON serialized list of computers:
 
+```text
+[{"access_group": "global",
+  "comment": u"",
+  "distribution": u"12.04",
+  "hostname": u"a_comp.example.com",
+  "id": 12345,
+  "last_ping_time": None,
+  "last_exchange_time": "2011-06-3017:59Z",
+  "title": u"A Computer",
+  "reboot_required_flag": False,
+  "tags": ["server"],
+  "total_memory": None,
+  "total_swap": None,
+  "network_devices": [{"broadcast_address": "192.168.1.255",
+                       "interface": "eth0",
+                       "ip_address": "192.168.1.2",
+                       "mac_address": "00:1e:c9:6c:b8:de",
+                       "netmask": "255.255.255.0"}]}]
+```
+
+The JSON equivalent of this output is:
+
 ```json
 [
     {
@@ -162,6 +184,27 @@ action=ChangeComputersAccessGroup&query=tag:new-servers
 
 The method returns a JSON serialized list of computers in the selection which have successfully changed access group:
 
+```text
+[{"access_group": "server",
+  "id": 12345,
+  "title": u"A Computer",
+  "comment": u"",
+  "total_memory": None,
+  "total_swap": None,
+  "reboot_required_flag": False,
+  "hostname": u"a_comp.example.com",
+  "last_ping_time": None,
+  "last_exchange_time": "2011-06-3017:59Z",
+  "tags": ["server"],
+  "network_devices": [{"broadcast_address": "192.168.1.255",
+                       "interface": "eth0",
+                       "ip_address": "192.168.1.2",
+                       "mac_address": "00:1e:c9:6c:b8:de",
+                       "netmask": "255.255.255.0"}]}]
+```
+
+The JSON equivalent of this output is:
+
 ```json
 [
     {
@@ -249,6 +292,16 @@ This is an example of a valid request:
 
 The method returns a JSON serialized list of accepted computers:
 
+```text
+[{"id": 12345,
+  "title": u"A Computer",
+  "comment": u"",
+  "hostname": u"a_comp.example.com",
+  "last_exchange_time": "2011-06-3017:59Z"}]
+```
+
+The JSON equivalent of this output is:
+
 ```json
 [
     {
@@ -317,6 +370,19 @@ This is an example of a valid request:
 
 The method returns a JSON serialized activity:
 
+```text
+{u'computer_id': None,
+ u'creation_time': u'2012-11-19T18:11:51Z',
+ u'creator': {u'email': u'john@example.com', u'id': 3,
+              u'name': u'John Smith'},
+ u'id': 141,
+ u'parent_id': None,
+ u'summary': u'Restart computer',
+ u'type': u'ActivityGroup'}
+```
+
+The JSON equivalent of this output is:
+
 ```json
 {
     "computer_id": "None",
@@ -352,6 +418,19 @@ This is an example of a valid request:
 ```
 
 The method returns a JSON serialized activity:
+
+```text
+{u'computer_id': None,
+ u'creation_time': u'2012-11-19T18:14:19Z',
+ u'creator': {u'email': u'john@example.com', u'id': 3,
+              u'name': u'John Smith'},
+ u'id': 147,
+ u'parent_id': None,
+ u'summary': u'Shutdown computer',
+ u'type': u'ActivityGroup'}
+```
+
+The JSON equivalent of this output is:
 
 ```json
 {

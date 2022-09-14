@@ -90,6 +90,22 @@ Example of a valid request:
 
 The method returns a JSON serialized list of the parent activity created:
 
+```text
+{'activity_status': u'undelivered',
+ 'computer_id': None,
+ 'creation_time': '2011-07-13T00:53:56Z',
+ 'creator': {'email': u'person@example.com',
+             'id': 66808,
+             'name': u'Person'},
+ 'deliver_delay_window': 0,
+ 'id': 4,
+ 'parent_id': None,
+ 'summary': u'Install packages haskell-mode and python-mode',
+ 'type': 'ActivityGroup'}
+```
+
+The JSON equivalent of this output is:
+
 ```json
 {
     "activity_status": "undelivered",
@@ -128,6 +144,22 @@ Example of a valid request:
 
 The method returns a JSON serialized list of the activity created:
 
+```text
+{'activity_status': u'undelivered',
+ 'computer_id': None,
+ 'creation_time': '2011-07-13T00:53:56Z',
+ 'creator': {'email': u'person@example.com',
+             'id': 66808,
+             'name': u'Person'},
+ 'deliver_delay_window': 0,
+ 'id': 4,
+ 'parent_id': None,
+ 'summary': u'Remove packages haskell-mode and python-mode',
+ 'type': 'ActivityGroup'}
+```
+
+The JSON equivalent of this output is:
+
 ```json
 {
     "activity_status": "undelivered",
@@ -163,6 +195,20 @@ UpgradePackages?query=tag:server&packages.1=python
 ```
 
 The method returns a JSON serialized list of the activity created:
+
+```text
+{'computer_id': None,
+ 'creation_time': '2011-07-18T15:30:13Z',
+ 'creator': {'email': u'person@example.com', 'id': 8634,
+             'name': u'Person'},
+ 'deliver_delay_window': 0,
+ 'id': 4547,
+ 'parent_id': None,
+ 'summary': u'Upgrade packages libpackz and packz',
+ 'type': 'ActivityGroup'}
+```
+
+The JSON equivalent of this output is:
 
 ```json
 {
