@@ -18,7 +18,7 @@ Each major Landscape version is supported for a period of one year after release
 
 
 ## Installation
-self-hosted Landscape consists of two parts:
+Self-hosted Landscape consists of two parts:
 
  * **database server**
  * **application server**
